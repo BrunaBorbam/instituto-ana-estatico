@@ -1,640 +1,229 @@
-		<div data-elementor-type="wp-page" data-elementor-id="517" class="elementor elementor-517">
-				<div class="elementor-element elementor-element-hero_container_517 e-con-full e-flex e-con e-parent" data-id="hero_container_517" data-element_type="container" data-e-type="container">
-				<div class="elementor-element elementor-element-hero_widget_517 elementor-widget elementor-widget-html" data-id="hero_widget_517" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
-				<div class="elementor-widget-container">
-					
-<style id="course-luxury-editorial-css">
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
-/* Reset e Tipografia Geral */
-html body[class*="page-id-"] {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-  color: #1e293b !important;
-  background-color: #fcfbf9 !important;
-  line-height: 1.65 !important;
-  -webkit-font-smoothing: antialiased !important;
-}
-
-html body[class*="page-id-"] :is(h1, h2, h3, h4, h5, h6, .elementor-heading-title, .elementor-image-box-title, .elementor-icon-box-title) {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  letter-spacing: -0.025em !important;
-  text-shadow: none !important;
-}
-
-/* ========================================================
-   HERO EDITORIAL SPLIT
-   ======================================================== */
-.editorial-hero-section {
-  background: #ffffff !important;
-  border-bottom: 1px solid #eae5db !important;
-  padding: 60px 20px 70px 20px !important;
-  width: 100% !important;
-}
-
-.editorial-hero-container {
-  max-width: 1180px !important;
-  margin: 0 auto !important;
-  display: grid !important;
-  grid-template-columns: 1.15fr 0.85fr !important;
-  gap: 50px !important;
-  align-items: center !important;
-}
-
-@media (max-width: 991px) {
-  .editorial-hero-container {
-    grid-template-columns: 1fr !important;
-    gap: 36px !important;
-  }
-}
-
-.editorial-hero-text {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  text-align: left !important;
-}
-
-.editorial-kicker {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  font-size: 0.8rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
-  color: #c2410c !important;
-  margin-bottom: 16px !important;
-}
-
-.editorial-kicker-bar {
-  width: 24px !important;
-  height: 2px !important;
-  background-color: #ea580c !important;
-  display: inline-block !important;
-}
-
-.editorial-h1 {
-  font-size: clamp(30px, 3.8vw, 46px) !important;
-  font-weight: 800 !important;
-  line-height: 1.2 !important;
-  color: #0f172a !important;
-  -webkit-text-fill-color: #0f172a !important;
-  margin: 0 0 20px 0 !important;
-  letter-spacing: -0.03em !important;
-}
-
-.editorial-h1 .accent-orange {
-  color: #ea580c !important;
-  -webkit-text-fill-color: #ea580c !important;
-}
-
-.editorial-desc {
-  font-size: 1.06rem !important;
-  font-weight: 400 !important;
-  line-height: 1.75 !important;
-  color: #475569 !important;
-  -webkit-text-fill-color: #475569 !important;
-  margin: 0 0 28px 0 !important;
-  max-width: 580px !important;
-}
-
-/* Barra de Metadados Técnica */
-.editorial-specs-meta {
-  display: flex !important;
-  align-items: center !important;
-  gap: 20px !important;
-  flex-wrap: wrap !important;
-  padding: 16px 0 !important;
-  margin-bottom: 32px !important;
-  border-top: 1px solid #f1ece1 !important;
-  border-bottom: 1px solid #f1ece1 !important;
-  width: 100% !important;
-}
-
-.spec-meta-item {
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-.spec-meta-label {
-  font-size: 0.72rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-  color: #94a3b8 !important;
-  margin-bottom: 2px !important;
-}
-
-.spec-meta-value {
-  font-size: 0.95rem !important;
-  font-weight: 700 !important;
-  color: #0f172a !important;
-}
-
-.spec-meta-divider {
-  width: 1px !important;
-  height: 28px !important;
-  background-color: #e2d9cc !important;
-}
-
-@media (max-width: 600px) {
-  .spec-meta-divider {
-    display: none !important;
-  }
-}
-
-.editorial-actions-group {
-  display: flex !important;
-  align-items: center !important;
-  gap: 16px !important;
-  flex-wrap: wrap !important;
-  width: 100% !important;
-}
-
-.btn-editorial-primary {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 8px !important;
-  background: #0f172a !important;
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  font-size: 0.98rem !important;
-  font-weight: 700 !important;
-  padding: 16px 30px !important;
-  border-radius: 8px !important;
-  text-decoration: none !important;
-  transition: all 0.25s ease !important;
-}
-
-.btn-editorial-primary:hover {
-  background: #ea580c !important;
-  color: #ffffff !important;
-  transform: translateY(-2px) !important;
-}
-
-.btn-editorial-whatsapp {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 8px !important;
-  background: #f8fafc !important;
-  border: 1px solid #cbd5e1 !important;
-  color: #0f172a !important;
-  -webkit-text-fill-color: #0f172a !important;
-  font-size: 0.98rem !important;
-  font-weight: 600 !important;
-  padding: 16px 26px !important;
-  border-radius: 8px !important;
-  text-decoration: none !important;
-  transition: all 0.25s ease !important;
-}
-
-.btn-editorial-whatsapp:hover {
-  background: #ffffff !important;
-  border-color: #ea580c !important;
-  color: #ea580c !important;
-  -webkit-text-fill-color: #ea580c !important;
-  transform: translateY(-2px) !important;
-}
-
-.editorial-hero-media {
-  position: relative !important;
-  width: 100% !important;
-}
-
-.editorial-hero-media img {
-  width: 100% !important;
-  height: 440px !important;
-  object-fit: cover !important;
-  border-radius: 16px !important;
-  border: 1px solid #e2d9cc !important;
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08) !important;
-}
-
-@media (max-width: 991px) {
-  .editorial-hero-media img {
-    height: 320px !important;
-  }
-}
-
-.media-badge-experience {
-  position: absolute !important;
-  bottom: 20px !important;
-  left: 20px !important;
-  background: rgba(15, 23, 42, 0.9) !important;
-  backdrop-filter: blur(8px) !important;
-  padding: 12px 20px !important;
-  border-radius: 10px !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  color: #ffffff !important;
-}
-
-.media-badge-experience strong {
-  display: block !important;
-  font-size: 1.15rem !important;
-  font-weight: 800 !important;
-  color: #ea580c !important;
-}
-
-.media-badge-experience span {
-  font-size: 0.78rem !important;
-  color: #cbd5e1 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-}
-
-/* ========================================================
-   GRADE CURRICULAR / EMENTA
-   ======================================================== */
-.editorial-curriculum-section {
-  padding: 70px 20px 40px 20px !important;
-  max-width: 1180px !important;
-  margin: 0 auto !important;
-}
-
-.curriculum-header {
-  margin-bottom: 40px !important;
-  text-align: left !important;
-}
-
-.curriculum-kicker {
-  font-size: 0.78rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
-  color: #64748b !important;
-  margin-bottom: 8px !important;
-}
-
-.curriculum-title {
-  font-size: clamp(26px, 3.2vw, 36px) !important;
-  font-weight: 800 !important;
-  color: #0f172a !important;
-  margin: 0 0 10px 0 !important;
-}
-
-.curriculum-desc {
-  font-size: 1.05rem !important;
-  color: #64748b !important;
-  max-width: 700px !important;
-  margin: 0 !important;
-}
-
-.editorial-modules-grid {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 24px !important;
-  margin-bottom: 40px !important;
-}
-
-@media (max-width: 768px) {
-  .editorial-modules-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-.editorial-module-card {
-  background: #ffffff !important;
-  border: 1px solid #e2d9cc !important;
-  border-radius: 12px !important;
-  padding: 30px 28px !important;
-  transition: all 0.25s ease !important;
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-.editorial-module-card:hover {
-  border-color: #ea580c !important;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05) !important;
-}
-
-.module-index {
-  font-size: 0.82rem !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.1em !important;
-  color: #ea580c !important;
-  margin-bottom: 8px !important;
-}
-
-.module-header-title {
-  font-size: 1.25rem !important;
-  font-weight: 800 !important;
-  color: #0f172a !important;
-  margin-bottom: 10px !important;
-}
-
-.module-body-text {
-  font-size: 0.98rem !important;
-  line-height: 1.7 !important;
-  color: #475569 !important;
-  margin: 0 !important;
-}
-
-/* Lista de Tópicos dentro do módulo (para vereadores) */
-.module-bullets-list {
-  list-style: none !important;
-  padding: 0 !important;
-  margin: 12px 0 0 0 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 8px !important;
-}
-
-.module-bullets-list li {
-  font-size: 0.94rem !important;
-  color: #334155 !important;
-  display: flex !important;
-  align-items: flex-start !important;
-  gap: 8px !important;
-  line-height: 1.5 !important;
-}
-
-.module-bullets-list li::before {
-  content: "•" !important;
-  color: #ea580c !important;
-  font-weight: bold !important;
-  font-size: 1.1rem !important;
-}
-
-/* ========================================================
-   PERFIL DOS ALUNOS
-   ======================================================== */
-.editorial-audience-box {
-  background: #ffffff !important;
-  border: 1px solid #e2d9cc !important;
-  border-left: 4px solid #ea580c !important;
-  border-radius: 8px !important;
-  padding: 32px 34px !important;
-  margin-bottom: 40px !important;
-}
-
-.audience-header-title {
-  font-size: 1.25rem !important;
-  font-weight: 800 !important;
-  color: #0f172a !important;
-  margin-bottom: 18px !important;
-}
-
-.audience-clean-list {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 12px !important;
-}
-
-.audience-clean-item {
-  display: flex !important;
-  align-items: baseline !important;
-  gap: 12px !important;
-  font-size: 1.02rem !important;
-  color: #334155 !important;
-  line-height: 1.6 !important;
-}
-
-.audience-dash {
-  color: #ea580c !important;
-  font-weight: 800 !important;
-  font-size: 1.2rem !important;
-}
-
-/* ========================================================
-   SEÇÃO DO FORMULÁRIO - DESIGN CLARO, NÍTIDO E ELEGANTE (100% VISÍVEL)
-   ======================================================== */
-.editorial-form-card {
-  background: #ffffff !important;
-  border: 1px solid #e2d9cc !important;
-  border-radius: 16px !important;
-  padding: 45px 36px !important;
-  margin: 10px auto 60px auto !important;
-  max-width: 1180px !important;
-  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.04) !important;
-}
-
-.editorial-form-header {
-  margin-bottom: 28px !important;
-  text-align: left !important;
-  border-bottom: 1px solid #f1ece1 !important;
-  padding-bottom: 20px !important;
-}
-
-.editorial-form-title {
-  font-size: clamp(24px, 2.8vw, 32px) !important;
-  font-weight: 800 !important;
-  color: #0f172a !important;
-  -webkit-text-fill-color: #0f172a !important;
-  margin: 0 0 8px 0 !important;
-}
-
-.editorial-form-subtitle {
-  font-size: 1.02rem !important;
-  color: #475569 !important;
-  -webkit-text-fill-color: #475569 !important;
-  margin: 0 !important;
-}
-
-/* Estilização dos campos do WPForms para contraste impecável */
-div#contato {
-  background: transparent !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-div#contato .wpforms-field-label {
-  color: #0f172a !important;
-  -webkit-text-fill-color: #0f172a !important;
-  font-weight: 700 !important;
-  font-size: 0.94rem !important;
-  margin-bottom: 6px !important;
-}
-
-div#contato input[type="text"],
-div#contato input[type="email"],
-div#contato input[type="tel"],
-div#contato textarea {
-  background: #f8fafc !important;
-  border: 1px solid #cbd5e1 !important;
-  color: #0f172a !important;
-  font-size: 0.98rem !important;
-  padding: 12px 16px !important;
-  border-radius: 8px !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-div#contato input:focus,
-div#contato textarea:focus {
-  border-color: #ea580c !important;
-  background: #ffffff !important;
-  outline: none !important;
-}
-
-div#contato button[type="submit"],
-div#contato .wpforms-submit {
-  background: #0f172a !important;
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  font-size: 1rem !important;
-  font-weight: 800 !important;
-  padding: 16px 36px !important;
-  border-radius: 8px !important;
-  border: none !important;
-  cursor: pointer !important;
-  transition: all 0.25s ease !important;
-}
-
-div#contato button[type="submit"]:hover,
-div#contato .wpforms-submit:hover {
-  background: #ea580c !important;
-  color: #ffffff !important;
-  transform: translateY(-2px) !important;
-}
-</style>
-
-
-    <section class="editorial-hero-section">
-      <div class="editorial-hero-container">
-        
-        <div class="editorial-hero-text">
-          <div class="editorial-kicker">
-            <span class="editorial-kicker-bar"></span>
-            <span>Instituto Ana • Ensino Presencial</span>
-          </div>
-
-          <h1 class="editorial-h1">
-            Design de Interiores<br>
-            <span class="accent-orange">Formação Prática e Projetos Reais</span>
-          </h1>
-
-          <p class="editorial-desc">
-            Capacitação prática com foco no mercado de arquitetura e interiores do litoral gaúcho. Aprenda concepção de espaços, paginação, iluminação e apresentação profissional de projetos com 30 anos de experiência real.
-          </p>
-
-          <div class="editorial-specs-meta">
-            <div class="spec-meta-item">
-          <span class="spec-meta-label">Modalidade</span>
-          <span class="spec-meta-value">Presencial em Xangri-Lá</span>
-        </div><div class="spec-meta-divider"></div><div class="spec-meta-item">
-          <span class="spec-meta-label">Formato</span>
-          <span class="spec-meta-value">Turmas Reduzidas</span>
-        </div><div class="spec-meta-divider"></div><div class="spec-meta-item">
-          <span class="spec-meta-label">Certificação</span>
-          <span class="spec-meta-value">Instituto Ana</span>
-        </div><div class="spec-meta-divider"></div><div class="spec-meta-item">
-          <span class="spec-meta-label">Público</span>
-          <span class="spec-meta-value">Iniciantes e Profissionais</span>
-        </div>
-          </div>
-
-          <div class="editorial-actions-group">
-            <a href="#contato" class="btn-editorial-primary">
-              <span>Receber informações da próxima turma</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-            </a>
-            <a href="https://wa.me/5551989987678?text=Olá!%20Gostaria%20de%20receber%20mais%20informações%20sobre%20o%20curso%20de%20Design%20de%20Interiores." target="_blank" class="btn-editorial-whatsapp">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-              <span>Falar no WhatsApp</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="editorial-hero-media">
-          <img decoding="async" src="https://anainstitutodeeducacao.com.br/reforma2026/wp-content/uploads/2026/06/arquitetura-engenharia-design-interiores.jpg" alt="Design de Interiores">
-          <div class="media-badge-experience">
-            <strong>30 ANOS</strong>
-            <span>De Experiência no Litoral</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    
-
-    <section class="editorial-curriculum-section">
-      <div class="curriculum-header">
-        <div class="curriculum-kicker">Programa de Capacitação</div>
-        <h2 class="curriculum-title">O que você vai aprender na prática</h2>
-        <p class="curriculum-desc">Aprendizado prático para criar ambientes funcionais, desenvolver projetos e apresentar suas ideias com clareza.</p>
-      </div>
-
-      <div class="editorial-modules-grid">
-        <div class="editorial-module-card">
-          <span class="module-index">MÓDULO 01</span>
-          <div class="module-header-title">Fundamentos do Design & Ergonomia</div>
-          <p class="module-body-text">Estudo de estilos, teoria cromática, circulação, iluminação natural e conceitos fundamentais do desenho espacial.</p>
-          
-        </div><div class="editorial-module-card">
-          <span class="module-index">MÓDULO 02</span>
-          <div class="module-header-title">Planejamento e Layout de Ambientes</div>
-          <p class="module-body-text">Zoneamento, ergonomia de mobiliário, proporções arquitetônicas e otimização funcional de espaços residenciais e comerciais.</p>
-          
-        </div><div class="editorial-module-card">
-          <span class="module-index">MÓDULO 03</span>
-          <div class="module-header-title">Materiais, Acabamentos & Iluminação</div>
-          <p class="module-body-text">Especificação de revestimentos, paletas de acabamentos, detalhamento de marcenaria sob medida e luminotécnica.</p>
-          
-        </div><div class="editorial-module-card">
-          <span class="module-index">MÓDULO 04</span>
-          <div class="module-header-title">Projeto Final & Apresentação Comercial</div>
-          <p class="module-body-text">Desenvolvimento de projeto executivo completo, técnicas de apresentação visual para clientes e estruturação de orçamentos.</p>
-          
-        </div>
-      </div>
-
-      <div class="editorial-audience-box">
-        <div class="audience-header-title">Perfil dos Alunos & Oportunidades</div>
-        <div class="audience-clean-list">
-          <div class="audience-clean-item">
-          <span class="audience-dash">—</span>
-          <span>Pessoas que desejam ingressar na área de design de interiores com capacitação técnica e prática.</span>
-        </div><div class="audience-clean-item">
-          <span class="audience-dash">—</span>
-          <span>Profissionais da marcenaria, arquitetura e construção que buscam expandir suas habilidades de projeto.</span>
-        </div><div class="audience-clean-item">
-          <span class="audience-dash">—</span>
-          <span>Quem deseja projetar seus próprios ambientes ou iniciar uma consultoria autônoma no litoral.</span>
-        </div>
-        </div>
-      </div>
-    </section>
-    <section class="editorial-curriculum-section"><h2 class="curriculum-title">Turma 2027</h2><p>Aulas às terças e quintas-feiras, de 16 de março a 16 de dezembro de 2027. Investimento: <strong>12 parcelas de R$ 600,00</strong>.</p><p>Promob de meados de outubro a meados de dezembro. Férias em janeiro e fevereiro de 2028; retorno em março para fotos de pré-formatura e organização da formatura.</p></section>
-<style id="ana-course-accessibility">.spec-meta-label{color:#596779!important}.editorial-form-card{padding:32px!important}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #bf5700!important;outline-offset:3px!important}@media(max-width:600px){.editorial-actions-group>a{width:100%;box-sizing:border-box}.editorial-hero-section{padding:32px 18px!important}.editorial-module-card,.editorial-audience-box{padding:22px!important}.editorial-form-card{padding:24px 18px!important}}@media(prefers-reduced-motion:reduce){.btn-editorial-primary,.btn-editorial-whatsapp,.editorial-module-card{transition:none!important;transform:none!important}}</style>				</div>
-				</div>
-				</div>
-		<div class="elementor-element elementor-element-form_container_517 e-flex e-con-boxed e-con e-parent" data-id="form_container_517" data-element_type="container" data-e-type="container">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-form_intro_widget_517 elementor-widget elementor-widget-html" data-id="form_intro_widget_517" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
-				<div class="elementor-widget-container">
-					
-    <div class="editorial-form-card" id="contato">
-      <div class="editorial-form-header">
-        <h2 class="editorial-form-title">Solicite informações e garanta sua vaga</h2>
-        <p class="editorial-form-subtitle">Preencha seus dados para receber o cronograma completo das aulas presenciais e valores especiais de inscrição.</p>
-      </div>
-    </div>
-    				</div>
-				</div>
-				<div class="elementor-element elementor-element-form_widget_517 eael-wpforms-labels-yes eael-wpforms-form-button-custom elementor-widget elementor-widget-eael-wpforms" data-id="form_widget_517" data-element_type="widget" data-e-type="widget" data-widget_type="eael-wpforms.default">
-				<div class="elementor-widget-container">
-					            <div class="eael-contact-form eael-wpforms eael-wpforms-align-default">
-                                <div class="wpforms-container wpforms-container-full wpforms-render-modern" id="wpforms-184"><form id="wpforms-form-184" class="wpforms-validate wpforms-form wpforms-ajax-form" data-formid="184" method="post" enctype="multipart/form-data" action="/reforma2026/index.php?rest_route=%2Fwp%2Fv2%2Fpages%2F517" data-token="e6a676e2d66f07536117a8c19347d7ad" data-token-time="1788892346"><div class="wpforms-head-container"><div class="wpforms-title">Formulário de Interesse</div></div><noscript class="wpforms-error-noscript">Ative o JavaScript no seu navegador para preencher este formulário.</noscript><div id="wpforms-error-noscript" style="display: none;">Ative o JavaScript no seu navegador para preencher este formulário.</div><div class="wpforms-field-container"><div id="wpforms-184-field_1-container" class="wpforms-field wpforms-field-text" data-field-id="1"><label class="wpforms-field-label" for="wpforms-184-field_1">Nome <span class="wpforms-required-label" aria-hidden="true">*</span></label><input type="text" id="wpforms-184-field_1" class="wpforms-field-medium wpforms-field-required" name="wpforms[fields][1]" placeholder="Digite o nome completo..." aria-errormessage="wpforms-184-field_1-error" required></div><div id="wpforms-184-field_2-container" class="wpforms-field wpforms-field-text" data-field-id="2"><label class="wpforms-field-label" for="wpforms-184-field_2">Telefone <span class="wpforms-required-label" aria-hidden="true">*</span></label><input type="text" id="wpforms-184-field_2" class="wpforms-field-medium wpforms-field-required" name="wpforms[fields][2]" placeholder="Digite o seu telefone..." aria-errormessage="wpforms-184-field_2-error" required></div><div id="wpforms-184-field_3-container" class="wpforms-field wpforms-field-email" data-field-id="3"><label class="wpforms-field-label" for="wpforms-184-field_3">E-mail <span class="wpforms-required-label" aria-hidden="true">*</span></label><input type="email" id="wpforms-184-field_3" class="wpforms-field-medium wpforms-field-required" name="wpforms[fields][3]" placeholder="contato@email.com.br" spellcheck="false" aria-errormessage="wpforms-184-field_3-error" required></div>		<div id="wpforms-184-field_5-container"
-			class="wpforms-field wpforms-field-text"
-			data-field-type="text"
-			data-field-id="5"
-			>
-			<label class="wpforms-field-label" for="wpforms-184-field_5" >E-mail Telefone Nome</label>
-			<input type="text" id="wpforms-184-field_5" class="wpforms-field-medium" name="wpforms[fields][5]" >
-		</div>
-		<div id="wpforms-184-field_4-container" class="wpforms-field wpforms-field-select wpforms-field-select-style-classic" data-field-id="4"><label class="wpforms-field-label" for="wpforms-184-field_4">Curso de Interesse</label><select id="wpforms-184-field_4" class="wpforms-field-medium" name="wpforms[fields][4]"><option value="Outros"  class="choice-1 depth-1"  >Outros</option><option value="Desenho Técnico + Promob"  class="choice-17 depth-1"  >Desenho Técnico + Promob</option><option value="Designer de Interiores"  class="choice-6 depth-1"  >Designer de Interiores</option><option value="Social Media"  class="choice-9 depth-1"  >Social Media</option><option value="Tráfego Pago"  class="choice-3 depth-1"  >Tráfego Pago</option><option value="Formação para Vereadores"  class="choice-16 depth-1"  >Formação para Vereadores</option></select></div><script>
-				( function() {
-					const style = document.createElement( 'style' );
-					style.appendChild( document.createTextNode( '#wpforms-184-field_5-container { position: absolute !important; overflow: hidden !important; display: inline !important; height: 1px !important; width: 1px !important; z-index: -1000 !important; padding: 0 !important; } #wpforms-184-field_5-container input { visibility: hidden; } #wpforms-conversational-form-page #wpforms-184-field_5-container label { counter-increment: none; }' ) );
-					document.head.appendChild( style );
-					document.currentScript?.remove();
-				} )();
-			</script></div><!-- .wpforms-field-container --><div class="wpforms-submit-container" ><input type="hidden" name="wpforms[id]" value="184"><input type="hidden" name="page_title" value=""><input type="hidden" name="page_url" value="https://anainstitutodeeducacao.com.br/reforma2026/index.php?rest_route=/wp/v2/pages/517"><input type="hidden" name="url_referer" value=""><button type="submit" name="wpforms[submit]" id="wpforms-submit-184" class="wpforms-submit" data-alt-text="Enviando…" data-submit-text="Enviar Interesse" aria-live="assertive" value="wpforms-submit">Enviar Interesse</button><img decoding="async" src="https://anainstitutodeeducacao.com.br/reforma2026/wp-content/plugins/wpforms-lite/assets/images/submit-spin.svg" class="wpforms-submit-spinner" style="display: none;" width="26" height="26" alt="Carregando"></div></form></div>  <!-- .wpforms-container -->            </div>
-				</div>
-				</div>
-					</div>
-				</div>
-				</div>
-		
+<!DOCTYPE html>
+
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="noindex,follow" name="robots"/>
+<title>WordPress › You need to login to access that page</title>
+<style>
+            * {
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            html {
+                background: #f1f1f1;
+            }
+
+            body {
+                color: #444;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+                margin: 0;
+            }
+
+            .wp-staging-login {
+                padding: 1rem;
+            }
+
+            .wp-staging-form {
+                -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.13);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.13);
+                max-width: 500px;
+                width: 100%;
+                margin: 3rem auto;
+                background: #fff;
+                padding: 1rem;
+                overflow: hidden;
+                p.error-msg {
+                    line-height: 1.5em;
+                    a{
+                        color: #ff4c4c;
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            .form-control {
+                width: 100%;
+                border: 1px solid #ced4da;
+                border-radius: .25rem;
+                padding: 0.75rem 1rem;
+                font-size: 14px;
+            }
+
+            .form-control:focus {
+                outline: 0;
+                -webkit-box-shadow: 0 0 0 0.1rem rgba(221,221,221,.35);
+                box-shadow: 0 0 0 0.1rem rgba(221,221,221,.35);
+            }
+
+            .form-group {
+                margin: 0 0 1em;
+            }
+
+            .form-group label {
+                margin: 0 0 0.5em;
+                display: block;
+            }
+
+            .login-remember input {
+                margin-top: 0;
+                vertical-align: middle;
+            }
+
+            .btn {
+                background: #f7f7f7;
+                border: 1px solid #ccc;
+                color: #555;
+                display: inline-block;
+                text-decoration: none;
+                font-size: 14px;
+                margin: 0;
+                padding: 0.65rem 1.1rem;
+                cursor: pointer;
+                -webkit-border-radius: 3px;
+                -webkit-appearance: none;
+                border-radius: 3px;
+                white-space: nowrap;
+                vertical-align: top;
+                -webkit-transition: -webkit-box-shadow 0.2s ease;
+                transition: -webkit-box-shadow 0.2s ease;
+                -o-transition: box-shadow 0.2s ease;
+                transition: box-shadow 0.2s ease;
+                transition: box-shadow 0.2s ease, -webkit-box-shadow 0.2s ease;
+            }
+
+            .btn:hover {
+                -webkit-box-shadow: 0 0 0 0.1rem rgba(221,221,221,.35);
+                box-shadow: 0 0 0 0.1rem rgba(221,221,221,.35);
+            }
+
+            #error-page {
+                margin-top: 50px;
+            }
+
+            #error-page p {
+                font-size: 14px;
+                line-height: 1.5;
+                margin: 25px 0 20px;
+            }
+
+            #error-page code {
+                font-family: Consolas, Monaco, monospace;
+            }
+
+            .error-msg {
+                -webkit-animation: slideIn 0.3s ease;
+                animation: slideIn 0.3s ease;
+                color: #ff4c4c;
+            }
+
+            .password-lost{
+                padding-top:20px;
+            }
+
+            .wpstg-u-text-center {
+                text-align: center;
+            }
+
+            .wpstg-u-text-justify {
+                text-align: justify;
+            }
+
+            .wpstg-u-text-center img {
+                margin-top:30px;
+            }
+
+            .wpstg-alert {
+                padding: 16px;
+                border: 1px solid transparent;
+                margin-bottom: 8px;
+            }
+
+            .wpstg-alert > b {
+                margin-bottom: 8px;
+            }
+
+            .wpstg-alert > p {
+                margin: 0;
+                line-height: 1.3;
+            }
+
+            .wpstg-alert.wpstg-alert-info {
+                color: #fff;
+                background: #185abc;
+                border-color: #185abc;
+            }
+
+            .wpstg-upsell-link {
+                background: #f5f5f5;
+                padding: 15px 15px;
+                margin: 16px 0 0 0;
+                font-size: 14px;
+                font-weight: bold;
+            }
+
+            .wpstg-upsell-link a {
+                color: #a700d0;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            .wpstg-upsell-link a:hover {
+                text-decoration: underline;
+            }
+
+            @-webkit-keyframes slideIn {
+                0% {
+                    -webkit-transform: translateX(-100%);
+                    transform: translateX(-100%);
+                }
+                100% {
+                    -webkit-transform: translateX(0);
+                    transform: translateX(0);
+                }
+            }
+
+            @keyframes slideIn {
+                0% {
+                    -webkit-transform: translateX(-100%);
+                    transform: translateX(-100%);
+                }
+                100% {
+                    -webkit-transform: translateX(0);
+                    transform: translateX(0);
+                }
+            }
+        </style>
+</head>
+<body>
+<main class="wp-staging-login">
+<div class="wpstg-u-text-center">
+<img alt="WP Staging Login" src="/assets/img/logo.svg" width="220"/>
+</div>
+<form action="" class="wp-staging-form" id="loginform" method="post" name="loginform">
+<div class="form-group login-username">
+<label for="user_login">Nome de Usuário ou Endereço de Email</label>
+<input class="input form-control" id="user_login" name="wpstg-username" size="20" type="text" value=""/>
+</div>
+<div class="form-group login-password">
+<label for="user_pass">Senha</label>
+<input class="input form-control" id="user_pass" name="wpstg-pass" size="20" type="password" value=""/>
+</div>
+<div class="form-group login-remember"><label><input id="rememberme" name="rememberme" type="checkbox" value="forever"/> <span>Lembrar-me</span></label></div>
+<div class="login-submit">
+<button class="btn" id="wp-submit" name="wpstg-submit" type="submit" value="Entrar">Login</button>
+<input name="redirect_to" type="hidden" value="https://anainstitutodeeducacao.com.br/reforma2026/?page_id=517"/>
+</div>
+<p class="wpstg-default-login-link">
+                Se o login não for possível, use o <a href="https://anainstitutodeeducacao.com.br/reforma2026/wp-login.php">formulário de login padrão</a>.            </p>
+<div class="password-lost">
+<a href="https://anainstitutodeeducacao.com.br/reforma2026/?page_id=938&amp;lost-password">Lost your senha?</a>
+</div>
+<div class="wpstg-upsell-link">
+                Login automático para sites de staging. Experimente <a href="https://wp-staging.com/pt/?utm_source=wp-staging-free&amp;utm_medium=plugin&amp;utm_campaign=pro_upgrade&amp;utm_content=login_form#pricing" target="_blank">WP Staging Pro</a> </div>
+</form>
+</main>
+</body>
+</html>
