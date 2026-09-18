@@ -2497,7 +2497,7 @@ footer.site-footer a:hover,
 
 /* Testimonial Quote Text */
 .eael-testimonial-content .eael-testimonial-text p {
-  color: #f1f5f9 !important;
+  color: #4A5568 !important;
   font-size: 1.02rem !important;
   line-height: 1.65 !important;
   font-style: italic !important;
@@ -2518,9 +2518,9 @@ footer.site-footer a:hover,
     }
     .eael-testimonial-content::before { top: 0; left: 0; }
     .eael-testimonial-content::after { bottom: 0; right: 0; transform: rotate(180deg); }
-    .eael-testimonial-item .eael-testimonial-text { color: #fff !important; }
-    .eael-testimonial-item .eael-testimonial-name { color: #FF5E14 !important; font-weight: bold; }
-    .eael-testimonial-item .eael-testimonial-company { color: #f0f0f0 !important; }
+    .eael-testimonial-item .eael-testimonial-text { color: #4A5568 !important; }
+    .eael-testimonial-item .eael-testimonial-name { color: #071b33 !important; font-weight: bold; }
+    .eael-testimonial-item .eael-testimonial-company { color: #ff6600 !important; }
     
     /* FIX MISSING FA-STARS IN REVIEWS */
     .fa-star {
@@ -2541,6 +2541,123 @@ footer.site-footer a:hover,
 
   gtag('config', 'G-VRKN7EXC5F');
 </script>
+
+<!-- INICIO: REFORMA PREMIUM GLOBAL -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+    /* Variáveis Globais */
+    :root {
+        --cor-primaria: #071b33; /* Azul Marinho */
+        --cor-secundaria: #ff6600; /* Laranja */
+        --cor-texto: #4A5568; /* Cinza Escuro */
+        --cor-fundo: #fdfbf7; /* Branco/Creme Premium */
+    }
+
+    body {
+        background-color: var(--cor-fundo) !important;
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+    }
+
+    /* Tipografia de Títulos (Somente áreas claras) */
+    body:not(.hero-master) .elementor-heading-title,
+    body:not(.hero-master) h1, body:not(.hero-master) h2, body:not(.hero-master) h3 {
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        letter-spacing: -0.02em !important;
+    }
+
+    /* ==== CORREÇÃO DOS DEPOIMENTOS ==== */
+    .eael-testimonial-item {
+        background: #ffffff !important;
+        border: 1px solid rgba(7, 27, 51, 0.05) !important;
+        border-radius: 20px !important;
+        padding: 40px 35px !important;
+        box-shadow: 0 10px 30px rgba(7, 27, 51, 0.04) !important;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+        position: relative;
+        overflow: hidden;
+        margin: 15px !important;
+    }
+
+    .eael-testimonial-item:hover {
+        transform: translateY(-8px) !important;
+        box-shadow: 0 20px 40px rgba(7, 27, 51, 0.08) !important;
+        border-color: rgba(255, 102, 0, 0.2) !important;
+    }
+
+    /* O texto do depoimento que estava invisível */
+    .eael-testimonial-text p {
+        color: var(--cor-texto) !important;
+        font-size: 1.05rem !important;
+        line-height: 1.7 !important;
+        font-weight: 500 !important;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* O nome do aluno */
+    .eael-testimonial-user {
+        color: var(--cor-primaria) !important;
+        font-weight: 800 !important;
+        font-size: 1.25rem !important;
+        margin-bottom: 2px !important;
+    }
+
+    /* Profissão / Curso */
+    .eael-testimonial-user-company {
+        color: var(--cor-secundaria) !important;
+        font-weight: 700 !important;
+        font-size: 0.85rem !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+    }
+
+    /* As aspas decorativas */
+    .eael-testimonial-quote {
+        color: rgba(255, 102, 0, 0.08) !important;
+        font-size: 80px !important;
+        position: absolute !important;
+        top: 20px !important;
+        right: 20px !important;
+        z-index: 1;
+    }
+
+    /* ==== CORREÇÃO DE OUTROS BLOCOS BUGADOS ==== */
+    /* Garante legibilidade nos blocos de texto gerais */
+    .elementor-text-editor {
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        line-height: 1.7 !important;
+    }
+
+    /* Arrumando o título "Quem já transformou sua carreira..." */
+    #depoimentos .elementor-heading-title {
+        color: var(--cor-primaria) !important;
+        font-weight: 800 !important;
+    }
+
+    /* Botão verde do WhatsApp */
+    a[href*="wa.me"] {
+        border-radius: 12px !important;
+        font-weight: 700 !important;
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        letter-spacing: 0.5px !important;
+        box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3) !important;
+        transition: all 0.3s ease !important;
+    }
+    a[href*="wa.me"]:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4) !important;
+    }
+
+    /* Carrossel de Imagens */
+    .elementor-image-carousel-wrapper {
+        border-radius: 16px !important;
+        overflow: hidden !important;
+        box-shadow: 0 10px 30px rgba(7, 27, 51, 0.05) !important;
+    }
+</style>
+<!-- FIM: REFORMA PREMIUM GLOBAL -->
+
 </head>
 <body class="page-template-default page page-id-935 wp-custom-logo elementor-default elementor-kit-6">
     <header id="masthead" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
