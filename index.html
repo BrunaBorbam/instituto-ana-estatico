@@ -4225,5 +4225,30 @@ var wpforms_settings = {"val_required":"Este campo \u00e9 obrigat\u00f3rio.","va
     }
 </style>
 
+
+<script id="js-nuclear-bomb">
+document.addEventListener("DOMContentLoaded", function() {
+    function enforceColors() {
+        var texts = document.querySelectorAll('.elementor-image-box-description, .elementor-image-box-description *, .eael-testimonial-text, .eael-testimonial-text *, .card-desc-text, .card-desc-text *, .elementor-text-editor *, .eael-testimonial-user-company, .eael-testimonial-user-company *');
+        for(var i = 0; i < texts.length; i++) {
+            texts[i].style.setProperty('color', '#4A5568', 'important');
+            texts[i].style.setProperty('opacity', '1', 'important');
+            texts[i].style.setProperty('text-shadow', 'none', 'important');
+        }
+        
+        var titles = document.querySelectorAll('.elementor-image-box-title, .elementor-image-box-title *, .eael-testimonial-user, .eael-testimonial-user *');
+        for(var j = 0; j < titles.length; j++) {
+            titles[j].style.setProperty('color', '#071b33', 'important');
+        }
+    }
+    
+    // Run immediately
+    enforceColors();
+    // Run again after 1s to override any Elementor deferred scripts
+    setTimeout(enforceColors, 1000);
+    setTimeout(enforceColors, 3000);
+});
+</script>
+
 </body>
 </html>
