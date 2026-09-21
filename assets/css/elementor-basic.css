@@ -118,51 +118,52 @@ img {
   margin-bottom: 15px;
 }
 
+/* Ensure all widgets are visible */
+.elementor-widget,
+.elementor-widget-container,
+.elementor-widget-wrap {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+/* Remove any overlays that might be blocking content */
+.elementor .elementor-background-overlay {
+  display: none;
+}
+
 /* Container layout styles */
 .e-con,
 .e-con-inner {
-  display: block !important;
-  width: 100% !important;
+  display: block;
+  width: 100%;
   background: transparent !important;
-  min-height: auto !important;
-  --background-color: transparent !important;
-  --overlay-opacity: 0 !important;
+  min-height: auto;
 }
 
 .e-con.e-flex {
-  display: flex !important;
+  display: flex;
   flex-wrap: wrap;
 }
 
 .e-con.e-flex.e-con-boxed {
   padding: 30px;
   border: 1px solid #ddd;
-  background: #fff !important;
-  --background-color: #fff !important;
+  background: #fff;
 }
 
 .e-con-full {
-  width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
 }
 
 .e-child {
-  display: block !important;
-  width: 100% !important;
+  display: block;
+  width: 100%;
   margin-bottom: 20px;
   background: transparent !important;
-  --background-color: transparent !important;
-}
-
-/* Force all e-con elements to not have dark backgrounds */
-.e-con::before,
-.e-con-inner::before {
-  background: transparent !important;
-  opacity: 0 !important;
-  display: none !important;
 }
 
 /* Icon list styles */
