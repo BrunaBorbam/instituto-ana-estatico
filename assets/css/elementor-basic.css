@@ -123,6 +123,8 @@ img {
 .e-con-inner {
   display: block;
   width: 100%;
+  background: transparent;
+  min-height: auto;
 }
 
 .e-con.e-flex {
@@ -133,18 +135,21 @@ img {
 .e-con.e-flex.e-con-boxed {
   padding: 30px;
   border: 1px solid #ddd;
+  background: #fff;
 }
 
 .e-con-full {
   width: 100%;
   margin-left: 0;
   margin-right: 0;
+  padding: 0;
 }
 
 .e-child {
   display: block;
   width: 100%;
   margin-bottom: 20px;
+  background: transparent;
 }
 
 /* Icon list styles */
