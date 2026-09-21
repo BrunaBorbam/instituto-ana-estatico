@@ -725,3 +725,8 @@ html body footer#colophon .elementor-icon-list-icon svg { fill: #ffc078 !importa
   html body.page-id-16 .elementor-element-970e6a0 > .e-con-inner { grid-template-columns:minmax(0,1fr) !important; text-align:center !important; }
   html body.page-id-16 #depoimentos .eael-testimonial-item { padding:22px 18px !important; }
 }
+/* Stretch card contents consistently, including the last course tile. */
+html body.page-id-16 #cursos .card-action-btn { width: 100% !important; min-height: 45px !important; box-sizing: border-box !important; align-self: stretch !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+html body.page-id-16 #depoimentos .elementor-widget-eael-testimonial { display: flex !important; align-items: stretch !important; }
+html body.page-id-16 #depoimentos .elementor-widget-eael-testimonial > .elementor-widget-container { display: flex !important; flex: 1 !important; height: auto !important; }
+html body.page-id-16 #depoimentos .eael-testimonial-item { flex: 1 !important; height: auto !important; }
