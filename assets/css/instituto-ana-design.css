@@ -179,6 +179,96 @@ html body .editorial-form-card,
 html body :is(.wpforms-container, .ana-form-card) {
   border-radius: 18px !important;
 }
+
+/* Keep the exported Elementor footer readable even with generic container/list CSS. */
+html body footer#colophon .elementor-element-af59abf {
+  background: var(--ana-navy) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 56px 24px !important;
+}
+html body footer#colophon .elementor-element-af59abf > .e-con-inner {
+  width: 100% !important;
+  max-width: 1240px !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1.2fr);
+  gap: 32px !important;
+  align-items: start !important;
+}
+html body footer#colophon .elementor-element-af59abf > .e-con-inner > .e-child {
+  width: auto !important;
+  min-width: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+html body footer#colophon .elementor-element-b573cec img {
+  display: block !important;
+  width: min(100%, 170px) !important;
+  height: auto !important;
+  max-height: 170px !important;
+  margin: 0 auto 16px !important;
+  object-fit: contain !important;
+}
+html body footer#colophon .elementor-heading-title {
+  color: #fff !important;
+  font-size: clamp(1.15rem, 1.5vw, 1.4rem) !important;
+  line-height: 1.25 !important;
+}
+html body footer#colophon .elementor-widget-icon-list > .elementor-widget-container {
+  margin: 16px 0 0 !important;
+}
+html body footer#colophon .elementor-icon-list-items {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+html body footer#colophon .elementor-icon-list-item {
+  margin: 0 !important;
+  padding: 7px 0 !important;
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255,255,255,.14) !important;
+}
+html body footer#colophon .elementor-icon-list-item:last-child { border-bottom: 0 !important; }
+html body footer#colophon .elementor-icon-list-item a {
+  padding: 0 !important;
+  color: #e8edf3 !important;
+  text-decoration: none;
+}
+html body footer#colophon .elementor-icon-list-text,
+html body footer#colophon .elementor-element-2f5727c,
+html body footer#colophon .elementor-element-b6ac288 {
+  color: #e8edf3 !important;
+  text-shadow: none !important;
+  overflow-wrap: anywhere;
+}
+html body footer#colophon .elementor-icon-list-item a:hover .elementor-icon-list-text {
+  color: #ffae72 !important;
+  text-decoration: underline;
+}
+html body footer#colophon .elementor-icon-list-icon svg { fill: #ffae72 !important; }
+html body footer#colophon .elementor-element-e44cdab iframe { width: 100% !important; border-radius: 10px; }
+html body footer#colophon .elementor-element-5394973 {
+  background: #06172c !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+@media (max-width: 1024px) {
+  html body footer#colophon .elementor-element-af59abf > .e-con-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px !important;
+  }
+}
+@media (max-width: 600px) {
+  html body footer#colophon .elementor-element-af59abf { padding: 40px 20px !important; }
+  html body footer#colophon .elementor-element-af59abf > .e-con-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px !important;
+  }
+}
 html body :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
   max-width: 100%;
   min-height: 46px;
