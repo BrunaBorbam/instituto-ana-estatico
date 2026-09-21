@@ -654,3 +654,7 @@ html body.page-id-16 #depoimentos .eael-testimonial-item { height: 100% !importa
 html body.page-id-16 #depoimentos :is(.eael-testimonial-content,.eael-testimonial-inline-bio,.bio-text) { height: auto !important; max-height: none !important; min-height: 0 !important; overflow: visible !important; position: static !important; }
 @media(max-width:1024px) { html body.page-id-16 #cursos { grid-template-columns:repeat(2,minmax(0,1fr)) !important; } }
 @media(max-width:600px) { html body.page-id-16 #cursos { grid-template-columns:minmax(0,1fr) !important; padding:40px 20px !important; } html body.page-id-16 #cursos .card-desc-text { min-height:0 !important; } }
+html body footer#colophon .elementor-element-e44cdab .elementor-custom-embed { height: 170px !important; min-height: 0 !important; }
+html body footer#colophon .elementor-element-e44cdab { height: auto !important; min-height: 0 !important; }
+html body.page-id-16 #cursos > .course-card-custom { min-height: 660px !important; }
+@media(max-width:600px) { html body.page-id-16 #cursos > .course-card-custom { min-height: 0 !important; } }
