@@ -2926,14 +2926,25 @@ html body.page-id-16 {
 /* =======================================================
    HERO MASTER - COMPACTO E HIPNOTIZANTE
    ======================================================= */
-html body.page-id-16 .hero-master-section,
-html body.page-id-16 .elementor-element-e1e3991 {
+/* HEADER - RESET COMPLETO */
+header#masthead {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+html body.page-id-16 .elementor-element-e1e3991,
+html body.page-id-16 .elementor-element-e1e3991.e-con-boxed {
   background: #071b33 !important;
   margin: 0 !important;
-  padding: 15px 30px !important;
+  padding: 18px 30px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  border: none !important;
+  min-height: auto !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 html body.page-id-16 .elementor-element-e1e3991 .e-con-inner {
@@ -2942,9 +2953,9 @@ html body.page-id-16 .elementor-element-e1e3991 .e-con-inner {
   justify-content: space-between !important;
   width: 100% !important;
   max-width: 1200px !important;
-  gap: 0 !important;
-  margin: 0 !important;
+  margin: 0 auto !important;
   padding: 0 !important;
+  gap: 0 !important;
 }
 
 html body.page-id-16 .elementor-element-d6f14e2 {
@@ -2953,10 +2964,14 @@ html body.page-id-16 .elementor-element-d6f14e2 {
   padding: 0 !important;
   width: auto !important;
   display: flex !important;
+  align-items: center !important;
 }
 
 html body.page-id-16 .elementor-element-d6f14e2 .elementor-widget-container {
   display: flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 html body.page-id-16 .elementor-element-d6f14e2 img {
@@ -2964,25 +2979,40 @@ html body.page-id-16 .elementor-element-d6f14e2 img {
   width: auto !important;
   display: block !important;
   margin: 0 !important;
+  padding: 0 !important;
 }
 
 html body.page-id-16 .elementor-element-91c6af4 {
   flex: 1 !important;
   margin: 0 !important;
   padding: 0 !important;
-  margin-left: 40px !important;
+  margin-left: 35px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+html body.page-id-16 .elementor-widget-container {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 html body.page-id-16 .hfe-nav-menu {
   display: flex !important;
   align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 html body.page-id-16 .hfe-nav-menu__layout-horizontal {
   display: flex !important;
-  gap: 30px !important;
+  gap: 28px !important;
   align-items: center !important;
   list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html body.page-id-16 .hfe-nav-menu__layout-horizontal li {
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -2995,11 +3025,13 @@ html body.page-id-16 .elementor-element-18d10ef.e-con.e-flex.e-con-boxed {
   justify-content: center !important;
   text-align: center !important;
   padding: 85px 20px 50px 20px !important;
+  margin: 0 !important;
   background: radial-gradient(ellipse at 50% 28%, rgba(255, 102, 0, 0.28) 0%, rgba(13, 22, 44, 0.94) 52%, rgba(7, 12, 24, 0.99) 100%),
               url('/assets/img/banner-inicial.jpg') center/cover no-repeat !important;
   position: relative !important;
   overflow: hidden !important;
   border: none !important;
+  width: 100% !important;
 }
 
 .hero-badge {
