@@ -118,22 +118,132 @@ html body header#masthead .hfe-sub-menu .hfe-menu-item {
   padding: 11px 16px !important;
 }
 
-/* Tighter first screen and a consistent editorial type scale. */
-html body.page-id-16 .elementor-element-18d10ef {
-  padding: clamp(64px, 7vw, 104px) 24px 72px !important;
-  min-height: min(690px, 80vh) !important;
+/* Quiet, readable navigation in the spirit of the supplied reference. */
+html body header#masthead .hfe-nav-menu__layout-horizontal .hfe-menu-item {
+  font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+  font-size: clamp(13px, .84vw, 15px) !important;
+  font-weight: 500 !important;
+  letter-spacing: -.01em !important;
 }
-html body.page-id-16 .hero-box { max-width: 960px !important; }
+html body header#masthead .hfe-nav-menu__layout-horizontal {
+  gap: clamp(6px, 1vw, 16px) !important;
+}
+html body header#masthead .hfe-nav-menu__layout-horizontal #menu-item-952 > a,
+html body header#masthead .hfe-nav-menu__layout-horizontal #menu-item-953 > a {
+  border-radius: 999px !important;
+  padding-inline: 14px !important;
+  min-height: 38px !important;
+  font-weight: 600 !important;
+}
+
+/* Home hero: a centered, concise introduction with both actions visible. */
+html body.page-id-16 .elementor-element-18d10ef {
+  min-height: 0 !important;
+  padding: clamp(72px, 8vw, 110px) 24px 48px !important;
+  background: linear-gradient(90deg, rgba(7, 27, 51, .86), rgba(7, 27, 51, .60)),
+              url('/assets/img/banner-inicial.jpg') center/cover no-repeat !important;
+  background-attachment: scroll !important;
+}
+html body.page-id-16 .elementor-element-18d10ef > .e-con-inner {
+  width: 100% !important;
+  max-width: 1180px !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+}
+html body.page-id-16 .elementor-element-18d10ef .elementor-element-3b5502a,
+html body.page-id-16 .elementor-element-18d10ef .hero-box {
+  width: 100% !important;
+  max-width: 890px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  align-items: center !important;
+}
 html body.page-id-16 .elementor-element-18d10ef .hero-headline-h1 {
-  max-width: 850px !important;
-  font-size: clamp(2.45rem, 4.1vw, 4.25rem) !important;
+  max-width: 780px !important;
+  margin: 0 auto 20px !important;
+  font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+  font-size: clamp(2.5rem, 4.1vw, 4rem) !important;
+  font-weight: 700 !important;
   line-height: 1.13 !important;
-  letter-spacing: -.035em !important;
+  letter-spacing: -.045em !important;
+  text-align: center !important;
 }
 html body.page-id-16 .elementor-element-18d10ef .hero-desc {
-  max-width: 720px !important;
-  font-size: clamp(1rem, 1.25vw, 1.15rem) !important;
-  line-height: 1.65 !important;
+  max-width: 680px !important;
+  margin: 0 auto 26px !important;
+  font-size: clamp(1rem, 1.15vw, 1.12rem) !important;
+  line-height: 1.6 !important;
+  text-align: center !important;
+}
+html body.page-id-16 .elementor-element-18d10ef .hero-actions {
+  width: 100% !important;
+  margin: 0 auto 20px !important;
+  justify-content: center !important;
+}
+html body.page-id-16 .elementor-element-18d10ef .hero-trust { justify-content: center !important; }
+html body.page-id-16 .elementor-element-18d10ef .elementor-element-0f7bdaf {
+  width: 100% !important;
+  margin: 38px auto 0 !important;
+}
+html body.page-id-16 .elementor-element-18d10ef .elementor-element-0f7bdaf .elementor-widget-icon-box {
+  min-height: 0 !important;
+  padding: 16px !important;
+}
+
+/* The course catalog should appear as soon as the introductory panel ends. */
+html body.page-id-780 .elementor-780 > .elementor-element-18d10ef {
+  min-height: 0 !important;
+  padding: 48px max(24px, calc((100vw - 1200px)/2)) 38px !important;
+  background-attachment: scroll !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.1fr) minmax(250px, .9fr) !important;
+  gap: 12px 32px !important;
+  align-items: center !important;
+}
+html body.page-id-780 .elementor-780 > .elementor-element-18d10ef > .elementor-element-a225205,
+html body.page-id-780 .elementor-780 > .elementor-element-18d10ef > .elementor-element-3b5502a {
+  grid-column: 1 !important;
+  width: 100% !important;
+  max-width: 650px !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+html body.page-id-780 .elementor-780 > .elementor-element-18d10ef > .elementor-element-4e930bc {
+  grid-column: 2 !important;
+  grid-row: 1 / 3 !important;
+  width: 100% !important;
+  max-width: 460px !important;
+  margin: 0 auto !important;
+}
+html body.page-id-780 .elementor-780 > .elementor-element-18d10ef > .elementor-element-0f7bdaf {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  margin: 14px 0 0 !important;
+  padding: 0 !important;
+}
+html body.page-id-780 .elementor-780 > .elementor-element-18d10ef .elementor-element-0f7bdaf > .e-con-inner {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+}
+html body.page-id-780 .elementor-780 > .elementor-element-18d10ef .elementor-widget-icon-box {
+  min-height: 0 !important;
+  padding: 14px !important;
+}
+html body.page-id-780 .ana-catalog-section { scroll-margin-top: 90px; }
+
+/* Consistent editorial type scale on the home and inner pages. */
+html body.page-id-16 .hero-box { max-width: 960px !important; }
+html body.page-id-16 .elementor-element-18d10ef .hero-headline-h1 {
+  max-width: 780px !important;
+}
+html body.page-id-16 .elementor-element-18d10ef .hero-desc {
+  max-width: 680px !important;
 }
 html body.page-id-16 .course-card-custom,
 html body.page-id-780 .ana-course-card,
@@ -330,6 +440,18 @@ html body.ana-simple-page :is(.btn, .btn-primary, .btn-secondary) {
 }
 
 @media (max-width: 1024px) {
+  html body.page-id-780 .elementor-780 > .elementor-element-18d10ef {
+    grid-template-columns: minmax(0, 1fr) !important;
+    padding: 40px 24px !important;
+  }
+  html body.page-id-780 .elementor-780 > .elementor-element-18d10ef > :is(.elementor-element-a225205, .elementor-element-3b5502a, .elementor-element-4e930bc, .elementor-element-0f7bdaf) {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    max-width: 100% !important;
+  }
+  html body.page-id-780 .elementor-780 > .elementor-element-18d10ef .elementor-element-0f7bdaf > .e-con-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
   html body header#masthead .elementor-element-e1e3991 { min-height: 68px !important; padding: 8px 18px !important; }
   html body header#masthead .elementor-element-e1e3991 > .e-con-inner { min-height: 52px !important; }
   html body header#masthead .elementor-element-d6f14e2 img { height: 48px !important; }
@@ -342,8 +464,14 @@ html body.ana-simple-page :is(.btn, .btn-primary, .btn-secondary) {
   html body header#masthead .hfe-dropdown .hfe-menu-item { color: #fff !important; }
 }
 @media (max-width: 767px) {
-  html body.page-id-16 .elementor-element-18d10ef { min-height: auto !important; padding: 60px 20px 64px !important; }
-  html body.page-id-16 .elementor-element-18d10ef .hero-headline-h1 { font-size: clamp(2.15rem, 8vw, 3rem) !important; }
+  html body.page-id-16 .elementor-element-18d10ef { padding: 58px 18px 34px !important; }
+  html body.page-id-16 .elementor-element-18d10ef .hero-headline-h1 { font-size: clamp(2.1rem, 7.5vw, 3rem) !important; }
+  html body.page-id-16 .elementor-element-18d10ef .hero-actions { flex-direction: column !important; align-items: stretch !important; }
+  html body.page-id-16 .elementor-element-18d10ef .hero-actions > a { width: 100% !important; }
+  html body.page-id-780 .elementor-780 > .elementor-element-18d10ef { padding: 32px 20px !important; }
+  html body.page-id-780 .elementor-780 > .elementor-element-18d10ef .elementor-element-0f7bdaf > .e-con-inner {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
   html body .editorial-hero-section, html body .v-hero-section { padding-block: 42px !important; }
   html body .editorial-h1, html body .v-hero-h1 { font-size: clamp(2.05rem, 8vw, 3rem) !important; }
   html body.ana-simple-page > header { flex-direction: column; justify-content: center; padding: 14px 20px !important; }
