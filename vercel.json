@@ -3,6 +3,24 @@
   "trailingSlash": false,
   "headers": [
     {
+      "source": "/",
+      "headers": [
+        { "key": "Clear-Site-Data", "value": "\"cache\"" }
+      ]
+    },
+    {
+      "source": "/cursos",
+      "headers": [
+        { "key": "Clear-Site-Data", "value": "\"cache\"" }
+      ]
+    },
+    {
+      "source": "/cursos/index.html",
+      "headers": [
+        { "key": "Clear-Site-Data", "value": "\"cache\"" }
+      ]
+    },
+    {
       "source": "/assets/(.*)",
       "headers": [
         {
