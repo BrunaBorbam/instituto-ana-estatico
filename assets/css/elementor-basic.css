@@ -122,53 +122,87 @@ img {
 .elementor-widget,
 .elementor-widget-container,
 .elementor-widget-wrap {
-  visibility: visible;
-  opacity: 1;
-  display: block;
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+  background: transparent !important;
 }
 
-/* Remove any overlays that might be blocking content */
-.elementor .elementor-background-overlay {
-  display: none;
-}
-
-/* Hide ::before pseudo-elements on containers */
-.e-con::before,
-.e-con-inner::before {
+/* Remove all background overlays */
+.elementor .elementor-background-overlay,
+.elementor .elementor-background,
+.elementor .elementor-background-video-container {
   display: none !important;
+}
+
+/* Hide all ::before pseudo-elements that create backgrounds */
+.e-con::before,
+.e-con-inner::before,
+.elementor-element::before,
+.elementor-widget::before,
+.e-con > .elementor-background-slideshow::before,
+.e-con > .elementor-motion-effects-container::before {
+  display: none !important;
+  content: none !important;
+  background: transparent !important;
+}
+
+/* Override any CSS variables that might set dark colors */
+.e-con,
+.e-con-inner,
+.elementor-element {
+  --background-color: transparent;
+  --overlay-opacity: 0;
+  --border-color: transparent;
 }
 
 /* Container layout styles */
 .e-con,
+.e-con-inner,
+.e-con.e-child,
+.e-con-full {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  min-height: auto !important;
+}
+
+.e-con {
+  display: block;
+  width: 100%;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 .e-con-inner {
   display: block;
   width: 100%;
-  background: transparent !important;
-  min-height: auto;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .e-con.e-flex {
-  display: flex;
+  display: flex !important;
   flex-wrap: wrap;
 }
 
 .e-con.e-flex.e-con-boxed {
   padding: 30px;
   border: 1px solid #ddd;
-  background: #fff;
+  background: #fff !important;
 }
 
 .e-con-full {
   width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-  padding: 0;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 0 !important;
 }
 
 .e-child {
   display: block;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 0 !important;
   background: transparent !important;
 }
 
