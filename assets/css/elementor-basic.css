@@ -132,6 +132,12 @@ img {
   display: none;
 }
 
+/* Hide ::before pseudo-elements on containers */
+.e-con::before,
+.e-con-inner::before {
+  display: none !important;
+}
+
 /* Container layout styles */
 .e-con,
 .e-con-inner {
