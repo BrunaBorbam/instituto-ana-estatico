@@ -1,0 +1,98 @@
+/* Elementor Basic Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #fff;
+}
+
+.elementor {
+  display: block;
+}
+
+.elementor-element {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.elementor-container {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px;
+}
+
+.elementor-widget {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.elementor-widget-container {
+  display: block;
+}
+
+.elementor-heading-title {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.elementor-size-default {
+  font-size: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 15px 0 10px 0;
+  font-weight: 600;
+}
+
+h1 { font-size: 32px; }
+h2 { font-size: 28px; }
+h3 { font-size: 24px; }
+h4 { font-size: 20px; }
+h5 { font-size: 18px; }
+h6 { font-size: 16px; }
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.elementor-widget-image img {
+  width: 100%;
+}
+
+.elementor-widget-text-editor {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.e-con {
+  display: block;
+}
+
+.e-con-inner {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .elementor-container {
+    padding: 15px;
+  }
+  
+  h1 { font-size: 24px; }
+  h2 { font-size: 20px; }
+  h3 { font-size: 18px; }
+  h4 { font-size: 16px; }
+}
