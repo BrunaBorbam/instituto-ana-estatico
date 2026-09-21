@@ -73,11 +73,13 @@ html body header#masthead .elementor-element-91c6af4 {
   margin: 0 !important;
   padding: 0 !important;
 }
-html body header#masthead .elementor-element-91c6af4 .elementor-widget-container,
-html body header#masthead .elementor-element-91c6af4 .hfe-nav-menu {
-  width: 100% !important;
-  display: flex !important;
-  justify-content: flex-end !important;
+@media (min-width: 1025px) {
+  html body header#masthead .elementor-element-91c6af4 .elementor-widget-container,
+  html body header#masthead .elementor-element-91c6af4 .hfe-nav-menu {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+  }
 }
 html body header#masthead .hfe-nav-menu__layout-horizontal {
   min-height: 60px !important;
