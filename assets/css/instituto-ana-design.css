@@ -214,7 +214,7 @@ html body header#masthead .hfe-sub-menu .hfe-menu-item {
 /* Quiet, readable navigation in the spirit of the supplied reference. */
 html body header#masthead .hfe-nav-menu__layout-horizontal .hfe-menu-item {
   font-family: Inter, "Segoe UI", Arial, sans-serif !important;
-  font-size: clamp(13px, .84vw, 15px) !important;
+  font-size: 14px !important;
   font-weight: 500 !important;
   letter-spacing: -.01em !important;
 }
@@ -224,8 +224,8 @@ html body header#masthead .hfe-nav-menu__layout-horizontal {
 html body header#masthead .hfe-nav-menu__layout-horizontal #menu-item-952 > a,
 html body header#masthead .hfe-nav-menu__layout-horizontal #menu-item-953 > a {
   border-radius: 999px !important;
-  padding-inline: 14px !important;
-  min-height: 38px !important;
+  padding-inline: 16px !important;
+  min-height: 42px !important;
   font-weight: 600 !important;
 }
 
@@ -821,3 +821,8 @@ html body.ana-simple-page > header nav a:hover { background-color: #18334f; bord
   html body.ana-simple-page > header nav a { text-align:left; }
   .ana-course-links { position:static; width:auto; }
 }
+
+/* Normalize dropdown indicator spacing across the exported templates. */
+html body header#masthead .hfe-menu-toggle { display:inline-flex !important; align-items:center !important; justify-content:center !important; width:16px !important; margin:0 0 0 8px !important; padding:0 !important; }
+html body header#masthead nav.hfe-nav-menu__layout-horizontal .hfe-menu-item { line-height:20px !important; }
+@media(min-width:768px) and (max-width:1024px) { html body header#masthead nav.hfe-nav-menu__layout-horizontal .hfe-menu-item { font-size:13px !important; } }
