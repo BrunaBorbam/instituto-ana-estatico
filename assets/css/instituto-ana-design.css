@@ -730,3 +730,4 @@ html body.page-id-16 #cursos .card-action-btn { width: 100% !important; min-heig
 html body.page-id-16 #depoimentos .elementor-widget-eael-testimonial { display: flex !important; align-items: stretch !important; }
 html body.page-id-16 #depoimentos .elementor-widget-eael-testimonial > .elementor-widget-container { display: flex !important; flex: 1 !important; height: auto !important; }
 html body.page-id-16 #depoimentos .eael-testimonial-item { flex: 1 !important; height: auto !important; }
+html body.page-id-16 #cursos .elementor-image-box-content { width: 100% !important; max-width: none !important; min-width: 0 !important; box-sizing: border-box !important; align-self: stretch !important; align-items: stretch !important; }
