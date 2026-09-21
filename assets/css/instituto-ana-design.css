@@ -73,6 +73,12 @@ html body header#masthead .elementor-element-91c6af4 {
   margin: 0 !important;
   padding: 0 !important;
 }
+html body header#masthead .elementor-element-91c6af4 .elementor-widget-container,
+html body header#masthead .elementor-element-91c6af4 .hfe-nav-menu {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+}
 html body header#masthead .hfe-nav-menu__layout-horizontal {
   min-height: 60px !important;
   margin: 0 !important;
@@ -116,13 +122,13 @@ html body.page-id-16 .elementor-element-18d10ef {
   min-height: min(690px, 80vh) !important;
 }
 html body.page-id-16 .hero-box { max-width: 960px !important; }
-html body.page-id-16 main .hero-headline-h1 {
+html body.page-id-16 .elementor-element-18d10ef .hero-headline-h1 {
   max-width: 850px !important;
   font-size: clamp(2.45rem, 4.1vw, 4.25rem) !important;
   line-height: 1.13 !important;
   letter-spacing: -.035em !important;
 }
-html body.page-id-16 main .hero-desc {
+html body.page-id-16 .elementor-element-18d10ef .hero-desc {
   max-width: 720px !important;
   font-size: clamp(1rem, 1.25vw, 1.15rem) !important;
   line-height: 1.65 !important;
@@ -245,7 +251,7 @@ html body.ana-simple-page :is(.btn, .btn-primary, .btn-secondary) {
 }
 @media (max-width: 767px) {
   html body.page-id-16 .elementor-element-18d10ef { min-height: auto !important; padding: 60px 20px 64px !important; }
-  html body.page-id-16 main .hero-headline-h1 { font-size: clamp(2.15rem, 8vw, 3rem) !important; }
+  html body.page-id-16 .elementor-element-18d10ef .hero-headline-h1 { font-size: clamp(2.15rem, 8vw, 3rem) !important; }
   html body .editorial-hero-section, html body .v-hero-section { padding-block: 42px !important; }
   html body .editorial-h1, html body .v-hero-h1 { font-size: clamp(2.05rem, 8vw, 3rem) !important; }
   html body.ana-simple-page > header { flex-direction: column; justify-content: center; padding: 14px 20px !important; }
