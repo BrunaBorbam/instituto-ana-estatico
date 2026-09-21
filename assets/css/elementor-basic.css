@@ -121,35 +121,48 @@ img {
 /* Container layout styles */
 .e-con,
 .e-con-inner {
-  display: block;
-  width: 100%;
-  background: transparent;
-  min-height: auto;
+  display: block !important;
+  width: 100% !important;
+  background: transparent !important;
+  min-height: auto !important;
+  --background-color: transparent !important;
+  --overlay-opacity: 0 !important;
 }
 
 .e-con.e-flex {
-  display: flex;
+  display: flex !important;
   flex-wrap: wrap;
 }
 
 .e-con.e-flex.e-con-boxed {
   padding: 30px;
   border: 1px solid #ddd;
-  background: #fff;
+  background: #fff !important;
+  --background-color: #fff !important;
 }
 
 .e-con-full {
-  width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-  padding: 0;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
 }
 
 .e-child {
-  display: block;
-  width: 100%;
+  display: block !important;
+  width: 100% !important;
   margin-bottom: 20px;
-  background: transparent;
+  background: transparent !important;
+  --background-color: transparent !important;
+}
+
+/* Force all e-con elements to not have dark backgrounds */
+.e-con::before,
+.e-con-inner::before {
+  background: transparent !important;
+  opacity: 0 !important;
+  display: none !important;
 }
 
 /* Icon list styles */
