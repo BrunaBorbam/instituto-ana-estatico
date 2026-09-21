@@ -5,3 +5,4 @@ node_modules
 .env
 .env.local
 # Deploy force rebuild
+# Rebuild trigger - Mon Sep 21 14:30:27 UTC 2026
