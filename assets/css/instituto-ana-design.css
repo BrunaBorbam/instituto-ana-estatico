@@ -198,7 +198,7 @@ html body.page-id-16 .elementor-element-18d10ef .elementor-element-0f7bdaf .elem
 /* The course catalog should appear as soon as the introductory panel ends. */
 html body.page-id-780 .elementor-780 > .elementor-element-18d10ef {
   min-height: 0 !important;
-  padding: 48px max(24px, calc((100vw - 1200px)/2)) 38px !important;
+  padding: 30px max(24px, calc((100vw - 1200px)/2)) 24px !important;
   background-attachment: scroll !important;
   display: grid !important;
   grid-template-columns: minmax(0, 1.1fr) minmax(250px, .9fr) !important;
@@ -228,7 +228,7 @@ html body.page-id-780 .elementor-780 > .elementor-element-18d10ef .elementor-ele
 html body.page-id-780 .elementor-780 > .elementor-element-18d10ef > .elementor-element-0f7bdaf {
   grid-column: 1 / -1 !important;
   width: 100% !important;
-  margin: 14px 0 0 !important;
+  margin: 8px 0 0 !important;
   padding: 0 !important;
 }
 html body.page-id-780 .elementor-780 > .elementor-element-18d10ef .elementor-element-0f7bdaf > .e-con-inner {
@@ -268,6 +268,9 @@ html body.page-id-780 .elementor-780 > .elementor-element-18d10ef .elementor-ico
 html body.page-id-780 .ana-catalog-section {
   scroll-margin-top: 90px;
   padding-top: 30px !important;
+}
+html body.page-id-780 .ana-catalog-section > div > div:first-child {
+  margin-bottom: 18px !important;
 }
 
 /* Consistent editorial type scale on the home and inner pages. */
