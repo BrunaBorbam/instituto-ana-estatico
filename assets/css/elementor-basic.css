@@ -1,4 +1,14 @@
 /* Elementor Basic Styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   line-height: 1.6;
@@ -8,6 +18,19 @@ body {
 
 .elementor {
   display: block;
+  width: 100%;
+}
+
+.elementor-section {
+  display: block;
+  width: 100%;
+  padding: 20px 0;
+  clear: both;
+}
+
+.elementor-section.elementor-section-full_width {
+  width: 100%;
+  margin: 0;
 }
 
 .elementor-element {
@@ -21,6 +44,19 @@ body {
   margin: 0 auto;
   padding: 20px;
   max-width: 1200px;
+}
+
+.elementor-row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.elementor-column {
+  display: block;
+  flex: 1;
+  min-height: 1px;
+  padding: 10px;
 }
 
 .elementor-widget {
@@ -54,6 +90,10 @@ h4 { font-size: 20px; }
 h5 { font-size: 18px; }
 h6 { font-size: 16px; }
 
+p {
+  margin: 0 0 10px 0;
+}
+
 a {
   color: #0066cc;
   text-decoration: none;
@@ -78,19 +118,117 @@ img {
   margin-bottom: 15px;
 }
 
-.e-con {
-  display: block;
-}
-
+/* Container layout styles */
+.e-con,
 .e-con-inner {
   display: block;
+  width: 100%;
+}
+
+.e-con.e-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.e-con.e-flex.e-con-boxed {
+  padding: 30px;
+  border: 1px solid #ddd;
+}
+
+.e-con-full {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.e-child {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Icon list styles */
+.elementor-icon-list-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.elementor-icon-list-item {
+  display: block;
+  margin-bottom: 15px;
+  list-style: none;
+}
+
+.elementor-icon-list-item a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #0066cc;
+}
+
+.elementor-icon-list-item a:hover {
+  text-decoration: underline;
+}
+
+.elementor-icon-list-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.elementor-icon-list-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.elementor-icon-list-text {
+  display: inline;
+}
+
+/* Google Maps widget */
+.elementor-custom-embed {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 15px;
+}
+
+.elementor-custom-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ddd;
+}
+
+/* Footer styles */
+footer {
+  background: #f5f5f5;
+  padding: 20px;
+  margin-top: 40px;
+  border-top: 1px solid #ddd;
+}
+
+footer p {
+  margin: 0;
+  text-align: center;
+  color: #666;
 }
 
 @media (max-width: 768px) {
   .elementor-container {
     padding: 15px;
   }
-  
+
+  .elementor-column {
+    padding: 5px;
+  }
+
+  .e-con.e-flex.e-con-boxed {
+    padding: 15px;
+  }
+
   h1 { font-size: 24px; }
   h2 { font-size: 20px; }
   h3 { font-size: 18px; }
