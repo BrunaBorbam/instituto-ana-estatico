@@ -826,3 +826,18 @@ html body.ana-simple-page > header nav a:hover { background-color: #18334f; bord
 html body header#masthead .hfe-menu-toggle { display:inline-flex !important; align-items:center !important; justify-content:center !important; width:16px !important; margin:0 0 0 8px !important; padding:0 !important; }
 html body header#masthead nav.hfe-nav-menu__layout-horizontal .hfe-menu-item { line-height:20px !important; }
 @media(min-width:768px) and (max-width:1024px) { html body header#masthead nav.hfe-nav-menu__layout-horizontal .hfe-menu-item { font-size:13px !important; } }
+
+/* Separate the home social project from the footer without changing the navy. */
+html body.page-id-16 footer#colophon::before {
+  content: "";
+  display: block;
+  width: calc(100% - 48px);
+  max-width: 1240px;
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, rgba(255,192,120,.55) 15%, rgba(255,192,120,.55) 85%, transparent);
+  pointer-events: none;
+}
+@media (max-width: 767px) {
+  html body.page-id-16 footer#colophon::before { width: calc(100% - 40px); }
+}
