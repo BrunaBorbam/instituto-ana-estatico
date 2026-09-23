@@ -841,3 +841,17 @@ html body.page-id-16 footer#colophon::before {
 @media (max-width: 767px) {
   html body.page-id-16 footer#colophon::before { width: calc(100% - 40px); }
 }
+
+/* Give the five home gallery photos breathing room without changing slide geometry. */
+html body.page-id-16 .elementor-element-92bdf0f .swiper-slide-inner {
+  margin: 0 !important;
+  padding: 0 8px !important;
+  box-sizing: border-box !important;
+}
+html body.page-id-16 .elementor-element-92bdf0f .swiper-slide-image {
+  display: block;
+  width: 100% !important;
+}
+@media (max-width: 767px) {
+  html body.page-id-16 .elementor-element-92bdf0f .swiper-slide-inner { padding-inline: 6px !important; }
+}
