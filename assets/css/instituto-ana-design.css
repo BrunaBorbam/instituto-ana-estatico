@@ -866,7 +866,7 @@ html body.page-id-16 #cursos .card-desc-text { min-height: 0 !important; flex-gr
 html body.page-id-16 #cursos .card-action-btn { margin-top: auto !important; margin-bottom: 0 !important; padding: 12px 16px !important; }
 
 /* Home hero contrast: keep the photograph subtle behind white copy. */
-html body.page-id-16 .elementor-16 .elementor-element.elementor-element-18d10ef {
+html body.page-id-16 .elementor.elementor-16 .elementor-element.elementor-element-18d10ef.e-con {
  background: linear-gradient(180deg, rgba(7,27,51,.80), rgba(7,27,51,.78) 55%, rgba(7,27,51,.90)),
  url('/assets/img/banner-inicial.jpg') center/cover no-repeat !important;
 }
