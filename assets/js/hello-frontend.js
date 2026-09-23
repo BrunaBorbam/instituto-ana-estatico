@@ -50,3 +50,34 @@
  },true);
  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",setup);else setup();
 })();
+/* Restore real, keyboard-accessible links in the exported home course cards. */
+(function () {
+ function linkHomeCourses() {
+  if (!document.body.classList.contains("page-id-16")) return;
+  const routes = {
+   "Formação para Vereadores e Lideranças Públicas": "/cursos/vereadores.html",
+   "Desenho Técnico + Promob": "/cursos/desenho-tecnico-promob.html",
+   "Designer de Interiores": "/cursos/designer-de-interiores.html",
+   "Social Media": "/cursos/social-media.html",
+   "Tráfego Pago": "/cursos/trafego-pago.html"
+  };
+  document.querySelectorAll(".course-card-custom").forEach(card => {
+   const title = card.querySelector(".elementor-image-box-title");
+   const name = title?.textContent.trim();
+   const href = routes[name];
+   if (!href) return;
+   card.querySelectorAll(".elementor-image-box-title a, .elementor-image-box-img a").forEach(link => { link.href = href; });
+   const button = card.querySelector(".card-action-btn");
+   if (!button) return;
+   if (button.tagName === "A") { button.href = href; return; }
+   const link = document.createElement("a");
+   link.className = button.className;
+   link.href = href;
+   link.textContent = button.textContent;
+   link.setAttribute("aria-label", "Ver detalhes do curso: " + name);
+   button.replaceWith(link);
+  });
+ }
+ if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", linkHomeCourses);
+ else linkHomeCourses();
+})();
