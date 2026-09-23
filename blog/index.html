@@ -2820,6 +2820,6 @@ footer.site-footer a:hover,
 </div>
 </div>
 </div>
-</div> </footer>
+<section id="blog-posts-live" style="max-width:1100px;margin:40px auto;padding:24px;background:#fff;border-radius:18px"><h2>Publicações recentes</h2><div id="blog-posts-live-list">Carregando publicações…</div></section><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script><script>(async()=>{const db=supabase.createClient('https://llbisfkatpgkothsetso.supabase.co','sb_publishable_bIwx5UgckFzhmmizdO-HaA_0wqoiol3');const box=document.querySelector('#blog-posts-live-list');const{data}=await db.from('blog_posts').select('slug,title,excerpt,cover_url,published_at').eq('status','published').order('published_at',{ascending:false}).limit(12);box.innerHTML=data?.length?data.map(p=>'<article><h3>'+String(p.title).replace(/[<>]/g,'')+'</h3><p>'+String(p.excerpt||'').replace(/[<>]/g,'')+'</p><a href="/blog/'+encodeURIComponent(p.slug)+'.html">Ler publicação →</a></article>').join(''):'Nenhuma publicação nova no momento.'})();</script></div> </footer>
 </body>
 </html>
