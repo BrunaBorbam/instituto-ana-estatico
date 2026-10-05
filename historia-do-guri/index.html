@@ -38,15 +38,15 @@ a{color:inherit}
   z-index:60;
   width:100%;
   margin:0;
-  padding:0;
+  padding:18px 54px;
   background:#071b33;
   border-bottom:1px solid rgba(255,255,255,.12);
 }
 .ia-site-header-inner{
   width:100%;
-  min-height:114px;
+  min-height:0;
   margin:0 auto;
-  padding:0 54px;
+  padding:0;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -61,7 +61,7 @@ a{color:inherit}
 .ia-site-logo img{
   display:block;
   width:auto;
-  height:56px;
+  height:50px;
   margin:0;
 }
 .ia-site-nav{
@@ -72,7 +72,7 @@ a{color:inherit}
   display:flex;
   align-items:center;
   justify-content:flex-end;
-  gap:29px;
+  gap:28px;
   list-style:none;
   margin:0;
   padding:0;
@@ -82,10 +82,10 @@ a{color:inherit}
   display:flex;
   align-items:center;
   gap:7px;
-  min-height:48px;
+  min-height:auto;
   padding:0;
   color:#fff;
-  font-size:16px;
+  font-size:15px;
   font-weight:700;
   line-height:1.2;
   text-decoration:none;
@@ -103,14 +103,14 @@ a{color:inherit}
 }
 .ia-site-menu>li.ia-area>a{
   min-height:auto;
-  padding:14px 22px;
+  padding:10px 16px;
   border:1px solid #d9a441;
   border-radius:999px;
   color:#fff;
 }
 .ia-site-menu>li.ia-loja>a{
   min-height:auto;
-  padding:15px 22px;
+  padding:11px 18px;
   border-radius:999px;
   background:#ff6600;
   color:#fff;
@@ -160,15 +160,16 @@ a{color:inherit}
 }
 .ia-menu-toggle svg{width:22px;height:22px;fill:currentColor}
 @media(max-width:1180px){
-  .ia-site-header-inner{padding:0 28px}
+  .ia-site-header{padding:16px 30px}
   .ia-site-menu{gap:19px}
   .ia-site-menu a{font-size:14px}
-  .ia-site-menu>li.ia-area>a{padding:12px 17px}
-  .ia-site-menu>li.ia-loja>a{padding:13px 18px}
+  .ia-site-menu>li.ia-area>a{padding:9px 15px}
+  .ia-site-menu>li.ia-loja>a{padding:10px 16px}
 }
 @media(max-width:980px){
-  .ia-site-header-inner{min-height:88px;padding:0 20px}
-  .ia-site-logo img{height:48px}
+  .ia-site-header{padding:14px 20px}
+  .ia-site-header-inner{min-height:0;padding:0}
+  .ia-site-logo img{height:46px}
   .ia-menu-toggle{display:flex}
   .ia-site-nav{
     display:none;
@@ -212,7 +213,8 @@ a{color:inherit}
   .ia-site-submenu a{padding:9px 4px;font-size:13px;color:#dbe3ec}
 }
 @media(max-width:520px){
-  .ia-site-header-inner{min-height:80px;padding:0 16px}
+  .ia-site-header{padding:13px 16px}
+  .ia-site-header-inner{min-height:0;padding:0}
   .ia-site-logo img{height:43px}
 }
 .ia-hero{
