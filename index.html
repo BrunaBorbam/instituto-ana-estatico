@@ -2845,6 +2845,155 @@ body:is(.page-id-16, .page-id-780, .page-id-329, .page-id-517, .page-id-540, .pa
 
 </style>
 <link rel='stylesheet' href='/assets/css/elementor-basic.css' media='all' />
+
+<style id="ia-guri-home-styles">
+/* Instituto Ana — seção História do Guri
+   Mantém a identidade visual vigente: azul-marinho, dourado/laranja, branco e tipografia editorial. */
+.ia-guri-home{
+  position:relative;
+  overflow:hidden;
+  padding:clamp(72px,9vw,118px) 24px;
+  background:#f7f3ec;
+  color:#071b33;
+}
+.ia-guri-home::before{
+  content:"";
+  position:absolute;
+  width:420px;height:420px;
+  right:-190px;top:-210px;
+  border-radius:50%;
+  background:rgba(217,164,65,.10);
+  pointer-events:none;
+}
+.ia-guri-shell{
+  position:relative;
+  z-index:1;
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(300px,.88fr) minmax(0,1.12fr);
+  gap:clamp(42px,7vw,88px);
+  align-items:center;
+}
+.ia-guri-visual{position:relative;}
+.ia-guri-portrait{
+  position:relative;
+  max-width:520px;
+  margin:0 auto;
+  padding:18px;
+  border:1px solid rgba(217,164,65,.42);
+  border-radius:32px;
+  background:#fff;
+  box-shadow:0 28px 70px rgba(7,27,51,.14);
+}
+.ia-guri-portrait::after{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid rgba(7,27,51,.07);
+  border-radius:24px;
+  pointer-events:none;
+}
+.ia-guri-portrait img{
+  display:block;
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:22px !important;
+}
+.ia-guri-badge{
+  position:absolute;
+  z-index:3;
+  left:-12px;
+  top:26px;
+  display:inline-flex;
+  align-items:center;
+  min-height:40px;
+  padding:10px 18px;
+  border-radius:999px;
+  background:#071b33;
+  color:#fff;
+  font-size:.76rem;
+  font-weight:800;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  box-shadow:0 12px 28px rgba(7,27,51,.18);
+}
+.ia-guri-kicker{
+  margin:0 0 13px;
+  color:#a97922;
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.ia-guri-title{
+  margin:0 0 24px;
+  color:#071b33 !important;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(2.9rem,5.1vw,5.25rem);
+  line-height:.98;
+  letter-spacing:-.035em;
+}
+.ia-guri-title span{color:#d9a441;}
+.ia-guri-copy{
+  max-width:690px;
+  color:#4a5568 !important;
+  font-size:clamp(1.02rem,1.25vw,1.12rem);
+  line-height:1.8;
+}
+.ia-guri-copy strong{color:#071b33;}
+.ia-guri-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:30px;
+}
+.ia-guri-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  min-height:50px;
+  padding:13px 22px;
+  border-radius:999px;
+  font-weight:800;
+  text-decoration:none !important;
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+}
+.ia-guri-btn:hover{transform:translateY(-2px);}
+.ia-guri-btn-primary{
+  background:#071b33;
+  color:#fff !important;
+  box-shadow:0 12px 30px rgba(7,27,51,.18);
+}
+.ia-guri-btn-primary:hover{background:#0d2b4f;}
+.ia-guri-btn-secondary{
+  border:1px solid rgba(7,27,51,.18);
+  background:#fff;
+  color:#071b33 !important;
+}
+.ia-guri-note{
+  margin-top:24px;
+  padding-top:20px;
+  border-top:1px solid rgba(7,27,51,.10);
+  color:#687385;
+  font-size:.91rem;
+  line-height:1.65;
+}
+@media(max-width:820px){
+  .ia-guri-shell{grid-template-columns:1fr;gap:36px;}
+  .ia-guri-content{text-align:left;}
+  .ia-guri-portrait{max-width:430px;}
+  .ia-guri-badge{left:8px;}
+}
+@media(max-width:520px){
+  .ia-guri-home{padding:64px 18px;}
+  .ia-guri-title{font-size:clamp(2.55rem,14vw,3.7rem);}
+  .ia-guri-actions{display:grid;grid-template-columns:1fr;}
+  .ia-guri-btn{width:100%;}
+}
+</style>
 </head>
 
 <body class="home wp-singular page-template page-template-elementor_header_footer page page-id-16 logged-in admin-bar no-customize-support wp-custom-logo wp-embed-responsive wp-theme-hello-elementor theme-hello-elementor tutor-lms woocommerce-no-js customer-area-active ehf-header ehf-footer ehf-template-hello-elementor ehf-stylesheet-hello-elementor hello-elementor-default elementor-default elementor-template-full-width elementor-kit-6 elementor-page elementor-page-16">
@@ -3609,6 +3758,34 @@ html body.page-id-16 .hfe-nav-menu__layout-horizontal .sub-menu li a:hover {
 				</div>
 					</div>
 				</div>
+		
+<section class="ia-guri-home" id="guri" aria-labelledby="ia-guri-title">
+  <div class="ia-guri-shell">
+    <div class="ia-guri-visual">
+      <span class="ia-guri-badge">Nosso mascote</span>
+      <div class="ia-guri-portrait">
+        <img src="/assets/img/Design-sem-nome-1-1-1024x1024.png" width="800" height="800" loading="lazy" decoding="async" alt="Guri, mascote do Instituto Ana de Educação">
+      </div>
+    </div>
+    <div class="ia-guri-content">
+      <p class="ia-guri-kicker">Uma história de amor, superação e propósito</p>
+      <h2 class="ia-guri-title" id="ia-guri-title">Conheça o <span>Guri</span></h2>
+      <div class="ia-guri-copy">
+        <p>Guri chegou à nossa família tremendo, magrinho e sem conseguir andar. Com amor, cuidado e uma boa dose de teimosia, deu seus primeiros passinhos — e nunca mais parou.</p>
+        <p>Hoje, sua história representa muito do que acreditamos no <strong>Instituto Ana</strong>: acolher, ensinar, acreditar no potencial de cada um e ajudar pessoas a encontrarem forças para seguir.</p>
+      </div>
+      <div class="ia-guri-actions">
+        <a class="ia-guri-btn ia-guri-btn-primary" href="/historia-do-guri/">
+          <span>Conheça a história do Guri</span><span aria-hidden="true">→</span>
+        </a>
+        <a class="ia-guri-btn ia-guri-btn-secondary" href="#projeto-estou-aqui">
+          <span>Conheça o Projeto Estou Aqui</span>
+        </a>
+      </div>
+      <p class="ia-guri-note">Mais do que um mascote, o Guri é um símbolo de cuidado, acolhimento e superação.</p>
+    </div>
+  </div>
+</section>
 		<div class="elementor-element elementor-element-b3eb601 e-con-full e-flex e-con e-parent" data-id="b3eb601" data-element_type="container" data-e-type="container" id="cursos" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 				<div class="elementor-element elementor-element-courses_custom_css elementor-widget elementor-widget-html" data-id="courses_custom_css" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
 				<div class="elementor-widget-container">
@@ -4288,7 +4465,7 @@ html, body {
 				</div>
 					</div>
 				</div>
-		<div class="elementor-element elementor-element-970e6a0 e-flex e-con-boxed e-con e-parent" data-id="970e6a0" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-970e6a0 e-flex e-con-boxed e-con e-parent" id="projeto-estou-aqui" data-id="970e6a0" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-b2958b1 elementor-widget__width-initial elementor-widget-tablet__width-inherit elementor-widget elementor-widget-image" data-id="b2958b1" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
@@ -4307,10 +4484,7 @@ html, body {
 				<div class="elementor-widget-container">
 															<img loading="lazy" decoding="async" width="800" height="800" src="/assets/img/Design-sem-nome-1-1-1024x1024.png" class="attachment-large size-large wp-image-437" alt="" srcset="/assets/img/Design-sem-nome-1-1-1024x1024.png 1024w" sizes="auto, (max-width: 800px) 100vw, 800px" loading="lazy" / loading="lazy">															</div>
 				</div>
-				<div class="elementor-element elementor-element-23fec29 elementor-widget elementor-widget-text-editor" data-id="23fec29" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
-									<p>Nosso mascote.</p>								</div>
-				</div>
+				
 				</div>
 					</div>
 				</div>
