@@ -1,53 +1,20 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><title>Meus cursos | Instituto Ana</title>
-<link rel="stylesheet" href="/assets/css/instituto-ana-design.css">
-<style>
-:root{--navy:#071b33;--orange:#ff6500;--line:#dbe4ee}*{box-sizing:border-box}
-body{margin:0;background:#f4f7fb;color:var(--navy);font:16px Arial,sans-serif}
-.top{background:var(--navy);color:#fff;padding:18px 5%;display:flex;justify-content:space-between;align-items:center}
-.top a,.top button{color:#fff;background:none;border:1px solid #ffffff55;border-radius:8px;padding:9px 13px;text-decoration:none;cursor:pointer}
-.wrap{max-width:1100px;margin:34px auto;padding:0 20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 8px 28px #071b3310}
-.card h2{margin-top:0}.module{border-top:1px solid var(--line);padding:14px 0}
-.lesson{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 0}
-.lesson a{color:var(--orange);font-weight:700}.status{color:#607086;min-height:24px}
-</style>
-</head>
-<body>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Meus cursos · Instituto Ana</title><style>
+:root{--navy:#071b33;--orange:#ff6500;--line:#dce5ef}*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:var(--navy);font:16px Arial,sans-serif}.top{background:var(--navy);color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px}.top a,.top button{background:none;color:white;text-decoration:none;border:1px solid #ffffff55;border-radius:9px;padding:9px 13px;cursor:pointer}.wrap{max-width:1120px;margin:32px auto;padding:0 20px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:23px;box-shadow:0 8px 22px #071b330a;margin:16px 0}h1{font-size:30px}h2{font-size:23px}.muted{color:#62738b}.course-cover{width:100%;height:170px;object-fit:cover;border-radius:10px}.module{border-top:1px solid var(--line);padding:15px 0}.module summary{font-weight:bold;cursor:pointer}.lesson{padding:12px 0;border-bottom:1px solid #e9edf4}.lesson strong{display:block}.btn{display:inline-block;background:var(--orange);border:0;border-radius:8px;color:white;padding:10px 16px;font:700 14px Arial;cursor:pointer;margin:8px 8px 8px 0}.btn.secondary{background:#071b33}.video{width:100%;max-width:760px;max-height:440px;border-radius:9px}.reading{white-space:pre-wrap;line-height:1.6}.badge{display:inline-block;border-radius:20px;background:#eaf1f8;padding:5px 9px;font-size:12px}.library a{color:#bf4d00;font-weight:bold}.error{color:#a22}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}@media(max-width:550px){.top{flex-wrap:wrap}.card{padding:15px}}</style></head><body>
 <header class="top"><strong>Instituto Ana · Meus cursos</strong><div><a href="/">Site</a> <button id="logout">Sair</button></div></header>
-<main class="wrap"><h1>Olá, estudante!</h1><p>Este é o seu espaço para acompanhar aulas, vídeos e materiais do Instituto Ana.</p><p id="status" class="status">Carregando seus cursos…</p><section id="courses" class="grid"></section></main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
-<script>
-const db=supabase.createClient('https://llbisfkatpgkothsetso.supabase.co','sb_publishable_bIwx5UgckFzhmmizdO-HaA_0wqoiol3');
-const status=document.getElementById('status');
-const courses=document.getElementById('courses');
-const esc=(value)=>String(value||'').replace(/[&<>'"]/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-function renderCourse(course){
-  const modules=(course.course_modules||[]).sort((a,b)=>a.position-b.position);
-  const moduleHtml=modules.map((module)=>{
-    const lessons=(module.course_lessons||[]).filter((lesson)=>lesson.published).sort((a,b)=>a.position-b.position);
-    const lessonsHtml=lessons.map((lesson)=>{
-      const link=lesson.video_url ? '<a href="'+esc(lesson.video_url)+'" target="_blank" rel="noopener">Assistir</a>' : '';
-      return '<div class="lesson"><span>'+esc(lesson.title)+'</span>'+link+'</div>';
-    }).join('');
-    return '<div class="module"><strong>'+esc(module.title)+'</strong>'+lessonsHtml+'</div>';
-  }).join('');
-  return '<article class="card">'+(course.cover_url?'<img src="'+esc(course.cover_url)+'" alt="" style="width:100%;height:150px;object-fit:cover;border-radius:10px">':'')+'<h2>'+esc(course.title)+'</h2><p>'+esc(course.description)+'</p>'+(moduleHtml||'<p>Conteúdos em preparação.</p>')+'</article>';
+<main class="wrap"><h1 id="welcome">Olá, estudante!</h1><p>Este é o seu espaço para acompanhar suas aulas, atividades e materiais de estudo.</p><p id="status" class="muted">Carregando seus cursos…</p><section id="courses"></section></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script><script>
+const db=supabase.createClient('https://llbisfkatpgkothsetso.supabase.co','sb_publishable_bIwx5UgckFzhmmizdO-HaA_0wqoiol3'),BUCKET='instituto-ana-cursos',status=document.querySelector('#status'),root=document.querySelector('#courses');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));const safeUrl=v=>{try{const u=new URL(v);return ['https:','http:'].includes(u.protocol)?u.href:''}catch{return ''}};
+async function signedFile(path){const r=await db.storage.from(BUCKET).createSignedUrl(path,120);if(r.error)throw r.error;return r.data.signedUrl}
+async function openFile(path){try{const url=await signedFile(path);window.open(url,'_blank','noopener')}catch(e){alert('Não foi possível abrir este material: '+e.message)}}
+async function renderLesson(lesson,container,progress,courseId){const el=document.createElement('div');el.className='lesson';const isDone=progress.has(lesson.id);el.innerHTML='<strong>'+esc(lesson.title)+'</strong><p class="muted">'+esc(lesson.description)+'</p>'+(lesson.content?'<p class="reading">'+esc(lesson.content)+'</p>':'')+(lesson.video_url?'<p><a target="_blank" rel="noopener noreferrer" href="'+esc(safeUrl(lesson.video_url))+'">Abrir vídeo ou conteúdo externo ↗</a></p>':'')+'<span class="badge">'+(isDone?'✓ Concluída':'Pendente')+'</span>';if(lesson.file_path){const btn=document.createElement('button');btn.className='btn secondary';btn.textContent='Abrir material da aula';btn.onclick=()=>openFile(lesson.file_path);el.append(btn)}const mark=document.createElement('button');mark.className='btn';mark.textContent=isDone?'Concluída ✓':'Marcar como concluída';mark.disabled=isDone;mark.onclick=async()=>{const u=await db.auth.getUser();if(!u.data.user)return;const r=await db.from('lesson_progress').upsert({student_id:u.data.user.id,course_id:courseId,lesson_key:lesson.id,completed_at:new Date().toISOString()},{onConflict:'student_id,course_id,lesson_key'});if(r.error){alert('Não foi possível registrar o progresso.');return}mark.textContent='Concluída ✓';mark.disabled=true;el.querySelector('.badge').textContent='✓ Concluída';progress.add(lesson.id)};el.append(mark);container.append(el)}
+async function load(){const userRes=await db.auth.getUser(),user=userRes.data.user;if(!user){location.href='/area-do-aluno/login.html';return}const name=user.user_metadata?.full_name;if(name)document.querySelector('#welcome').textContent='Olá, '+name+'!';
+const enroll=await db.from('enrollments').select('course_id,status').eq('student_id',user.id).in('status',['active','completed']);if(enroll.error){status.textContent='Erro ao consultar suas matrículas.';return}const ids=(enroll.data||[]).map(x=>x.course_id);if(!ids.length){status.textContent='Você ainda não tem cursos liberados. Fale com a coordenação para confirmar sua matrícula.';return}
+const courses=await db.from('courses').select('id,title,description,cover_url,status').in('id',ids).eq('status','published');if(courses.error){status.textContent='Não foi possível carregar os cursos.';return}if(!courses.data?.length){status.textContent='Seus cursos estão sendo preparados. Em breve aparecerão aqui.';return}status.textContent='Seus cursos disponíveis:';
+for(const c of courses.data){const card=document.createElement('article');card.className='card';card.innerHTML=(safeUrl(c.cover_url)?'<img class="course-cover" src="'+esc(safeUrl(c.cover_url))+'" alt="">':'')+'<h2>'+esc(c.title)+'</h2><p class="muted">'+esc(c.description)+'</p><h3>Módulos e aulas</h3>';root.append(card);
+const mods=await db.from('course_modules').select('id,title,description,position').eq('course_id',c.id).order('position');const progressRows=await db.from('lesson_progress').select('lesson_key').eq('course_id',c.id).eq('student_id',user.id);const progress=new Set((progressRows.data||[]).map(x=>x.lesson_key));
+if(mods.error){card.innerHTML+='<p>Não foi possível carregar os módulos.</p>';continue}for(const m of mods.data||[]){const section=document.createElement('details');section.className='module';section.open=true;section.innerHTML='<summary>'+esc(m.title)+'</summary><p class="muted">'+esc(m.description)+'</p>';card.append(section);const lessons=await db.from('course_lessons').select('*').eq('module_id',m.id).eq('published',true).order('position');if(lessons.error){section.innerHTML+='<p>Aulas temporariamente indisponíveis.</p>';continue}for(const l of lessons.data||[])await renderLesson(l,section,progress,c.id)}
+const library=document.createElement('section');library.className='library';library.innerHTML='<h3>Biblioteca digital</h3>';card.append(library);const mats=await db.from('course_materials').select('*').eq('course_id',c.id).eq('published',true).order('position');if(mats.error){library.innerHTML+='<p>Não foi possível abrir a biblioteca.</p>';continue}if(!mats.data?.length)library.innerHTML+='<p class="muted">Os e-books e apostilas estarão disponíveis aqui em breve.</p>';for(const m of mats.data||[]){const item=document.createElement('div');item.className='lesson';item.innerHTML='<strong>'+esc(m.title)+'</strong><p class="muted">'+esc(m.description)+'</p>';const btn=document.createElement('button');btn.className='btn secondary';btn.textContent='Abrir '+m.kind;btn.onclick=()=>openFile(m.file_path);item.append(btn);library.append(item)}}
 }
-async function load(){
-  const auth=await db.auth.getSession();
-  if(!auth.data.session){location.href='/area-do-aluno/login.html';return}
-  const result=await db.from('courses').select('id,title,description,cover_url,course_modules(id,title,position,course_lessons(id,title,position,video_url,published))').order('created_at',{ascending:false});
-  if(result.error){status.textContent='A área de conteúdos ainda está sendo configurada. Em breve seus cursos aparecerão aqui.';return}
-  const rows=result.data||[];
-  status.textContent=rows.length?'Selecione uma aula para começar.':'Nenhum curso foi liberado para sua matrícula ainda.';
-  courses.innerHTML=rows.map(renderCourse).join('');
-}
-document.getElementById('logout').onclick=async()=>{await db.auth.signOut();location.href='/area-do-aluno/login.html'};
-load();
-</script>
-</body>
-</html>
+document.querySelector('#logout').onclick=async()=>{await db.auth.signOut();location.href='/area-do-aluno/login.html'};load();
+</script></body></html>
