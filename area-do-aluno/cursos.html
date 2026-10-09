@@ -1,21 +1,206 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Meus cursos · Instituto Ana</title><style>
-:root{--navy:#071b33;--orange:#ff6500;--line:#dce5ef}*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:var(--navy);font:16px Arial,sans-serif}.top{background:var(--navy);color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px}.top a,.top button{background:none;color:white;text-decoration:none;border:1px solid #ffffff55;border-radius:9px;padding:9px 13px;cursor:pointer}.wrap{max-width:1120px;margin:32px auto;padding:0 20px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:23px;box-shadow:0 8px 22px #071b330a;margin:16px 0}h1{font-size:30px}h2{font-size:23px}.muted{color:#62738b}.course-cover{width:100%;height:170px;object-fit:cover;border-radius:10px}.module{border-top:1px solid var(--line);padding:15px 0}.module summary{font-weight:bold;cursor:pointer}.lesson{padding:12px 0;border-bottom:1px solid #e9edf4}.lesson strong{display:block}.btn{display:inline-block;background:var(--orange);border:0;border-radius:8px;color:white;padding:10px 16px;font:700 14px Arial;cursor:pointer;margin:8px 8px 8px 0}.btn.secondary{background:#071b33}.video{width:100%;max-width:760px;max-height:440px;border-radius:9px}.reading{white-space:pre-wrap;line-height:1.6}.badge{display:inline-block;border-radius:20px;background:#eaf1f8;padding:5px 9px;font-size:12px}.library a{color:#bf4d00;font-weight:bold}.error{color:#a22}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}@media(max-width:550px){.top{flex-wrap:wrap}.card{padding:15px}}</style></head><body>
-<header class="top"><strong>Instituto Ana · Meus cursos</strong><div><a href="/">Site</a> <button id="logout">Sair</button></div></header>
-<main class="wrap"><h1 id="welcome">Olá, estudante!</h1><p>Este é o seu espaço para acompanhar suas aulas, atividades e materiais de estudo.</p><p id="status" class="muted">Carregando seus cursos…</p><section id="courses"></section></main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script><script>
-const db=supabase.createClient('https://llbisfkatpgkothsetso.supabase.co','sb_publishable_bIwx5UgckFzhmmizdO-HaA_0wqoiol3'),BUCKET='instituto-ana-cursos',status=document.querySelector('#status'),root=document.querySelector('#courses');
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));const safeUrl=v=>{try{const u=new URL(v);return ['https:','http:'].includes(u.protocol)?u.href:''}catch{return ''}};
-async function signedFile(path){const r=await db.storage.from(BUCKET).createSignedUrl(path,120);if(r.error)throw r.error;return r.data.signedUrl}
-async function openFile(path){try{const url=await signedFile(path);window.open(url,'_blank','noopener')}catch(e){alert('Não foi possível abrir este material: '+e.message)}}
-function youtubeId(raw){try{const url=new URL(raw);const host=url.hostname.toLowerCase().replace(/^www\./,'');let id='';if(host==='youtu.be')id=url.pathname.split('/')[1];else if(['youtube.com','m.youtube.com','youtube-nocookie.com'].includes(host)){if(url.pathname==='/watch')id=url.searchParams.get('v');else if(url.pathname.startsWith('/embed/')||url.pathname.startsWith('/shorts/'))id=url.pathname.split('/')[2]}return /^[A-Za-z0-9_-]{11}$/.test(id||'')?id:null}catch{return null}}
-async function renderLesson(lesson,container,progress,courseId){const el=document.createElement('div');el.className='lesson';const isDone=progress.has(lesson.id);el.innerHTML='<strong>'+esc(lesson.title)+'</strong><p class="muted">'+esc(lesson.description)+'</p>'+(lesson.content?'<p class="reading">'+esc(lesson.content)+'</p>':'')+(lesson.video_url?'<p><a target="_blank" rel="noopener noreferrer" href="'+esc(safeUrl(lesson.video_url))+'">Abrir vídeo ou conteúdo externo ↗</a></p>':'')+'<span class="badge">'+(isDone?'✓ Concluída':'Pendente')+'</span>';const yt=youtubeId(lesson.video_url);if(yt){const iframe=document.createElement('iframe');iframe.src='https://www.youtube-nocookie.com/embed/'+yt;iframe.title='Vídeo da aula: '+lesson.title;iframe.loading='lazy';iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';iframe.allowFullscreen=true;iframe.referrerPolicy='strict-origin-when-cross-origin';iframe.style.cssText='display:block;width:100%;max-width:800px;aspect-ratio:16/9;border:0;border-radius:12px;margin:14px 0';el.querySelector('.badge').before(iframe)}if(lesson.file_path){const btn=document.createElement('button');btn.className='btn secondary';btn.textContent='Abrir material da aula';btn.onclick=()=>openFile(lesson.file_path);el.append(btn)}const mark=document.createElement('button');mark.className='btn';mark.textContent=isDone?'Concluída ✓':'Marcar como concluída';mark.disabled=isDone;mark.onclick=async()=>{const u=await db.auth.getUser();if(!u.data.user)return;const r=await db.from('lesson_progress').upsert({student_id:u.data.user.id,course_id:courseId,lesson_key:lesson.id,completed_at:new Date().toISOString()},{onConflict:'student_id,course_id,lesson_key'});if(r.error){alert('Não foi possível registrar o progresso.');return}mark.textContent='Concluída ✓';mark.disabled=true;el.querySelector('.badge').textContent='✓ Concluída';progress.add(lesson.id)};el.append(mark);container.append(el)}
-async function load(){const userRes=await db.auth.getUser(),user=userRes.data.user;if(!user){location.href='/area-do-aluno/login.html';return}const name=user.user_metadata?.full_name;if(name)document.querySelector('#welcome').textContent='Olá, '+name+'!';
-const enroll=await db.from('enrollments').select('course_id,status').eq('student_id',user.id).in('status',['active','completed']);if(enroll.error){status.textContent='Erro ao consultar suas matrículas.';return}const ids=(enroll.data||[]).map(x=>x.course_id);if(!ids.length){status.textContent='Você ainda não tem cursos liberados. Fale com a coordenação para confirmar sua matrícula.';return}
-const courses=await db.from('courses').select('id,title,description,cover_url,status').in('id',ids).eq('status','published');if(courses.error){status.textContent='Não foi possível carregar os cursos.';return}if(!courses.data?.length){status.textContent='Seus cursos estão sendo preparados. Em breve aparecerão aqui.';return}status.textContent='Seus cursos disponíveis:';
-for(const c of courses.data){const card=document.createElement('article');card.className='card';card.innerHTML=(safeUrl(c.cover_url)?'<img class="course-cover" src="'+esc(safeUrl(c.cover_url))+'" alt="">':'')+'<h2>'+esc(c.title)+'</h2><p class="muted">'+esc(c.description)+'</p><h3>Módulos e aulas</h3>';root.append(card);
-const mods=await db.from('course_modules').select('id,title,description,position').eq('course_id',c.id).order('position');const progressRows=await db.from('lesson_progress').select('lesson_key').eq('course_id',c.id).eq('student_id',user.id);const progress=new Set((progressRows.data||[]).map(x=>x.lesson_key));
-if(mods.error){card.innerHTML+='<p>Não foi possível carregar os módulos.</p>';continue}for(const m of mods.data||[]){const section=document.createElement('details');section.className='module';section.open=true;section.innerHTML='<summary>'+esc(m.title)+'</summary><p class="muted">'+esc(m.description)+'</p>';card.append(section);const lessons=await db.from('course_lessons').select('*').eq('module_id',m.id).eq('published',true).order('position');if(lessons.error){section.innerHTML+='<p>Aulas temporariamente indisponíveis.</p>';continue}for(const l of lessons.data||[])await renderLesson(l,section,progress,c.id)}
-const library=document.createElement('section');library.className='library';library.innerHTML='<h3>Biblioteca digital</h3>';card.append(library);const mats=await db.from('course_materials').select('*').eq('course_id',c.id).eq('published',true).order('position');if(mats.error){library.innerHTML+='<p>Não foi possível abrir a biblioteca.</p>';continue}if(!mats.data?.length)library.innerHTML+='<p class="muted">Os e-books e apostilas estarão disponíveis aqui em breve.</p>';for(const m of mats.data||[]){const item=document.createElement('div');item.className='lesson';item.innerHTML='<strong>'+esc(m.title)+'</strong><p class="muted">'+esc(m.description)+'</p>';const btn=document.createElement('button');btn.className='btn secondary';btn.textContent='Abrir '+m.kind;btn.onclick=()=>openFile(m.file_path);item.append(btn);library.append(item)}}
-}
-document.querySelector('#logout').onclick=async()=>{await db.auth.signOut();location.href='/area-do-aluno/login.html'};load();
-</script></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#071b33">
+  <title>Minhas aulas | Instituto Ana</title>
+  <style>
+    :root{--navy:#071b33;--navy2:#103455;--orange:#ff6500;--ink:#14283f;--muted:#61748a;--line:#e3e9f0;--surface:#fff;--wash:#f4f7fb;--success:#18734a}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--wash);color:var(--ink);font:15px/1.55 "Segoe UI",Arial,sans-serif}
+    button,select{font:inherit}
+    button{cursor:pointer}
+    button:disabled{opacity:.65;cursor:wait}
+    button:focus-visible,a:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #ff9a4c;outline-offset:3px}
+    .hidden{display:none!important}
+    .top{background:var(--navy);color:#fff;border-bottom:3px solid var(--orange)}
+    .top-inner{max-width:1250px;margin:auto;min-height:78px;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:13px;color:#fff;text-decoration:none;font-size:20px;font-weight:800}
+    .brand img{height:48px;width:48px;object-fit:contain;background:white;border-radius:12px;padding:5px}
+    .brand small{font-size:11px;color:#c0d2e0;letter-spacing:.12em;text-transform:uppercase;display:block;font-weight:700}
+    .top-links{display:flex;align-items:center;gap:10px}
+    .top-links a,.top-links button{border:1px solid #ffffff4f;color:white;background:#ffffff08;text-decoration:none;border-radius:9px;padding:9px 14px}
+    .top-links a:hover,.top-links button:hover{background:#ffffff1b}
+    .container{max-width:1250px;margin:auto;padding:33px 24px 68px}
+    .greeting{margin:0 0 23px}
+    .eyebrow{color:var(--orange);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    .greeting h1{font-size:clamp(24px,3vw,34px);line-height:1.15;color:var(--navy);margin:8px 0}
+    .greeting p{margin:0;color:var(--muted)}
+    .notice{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;color:var(--muted)}
+    .notice.error{border-color:#edb3aa;color:#a52a1b;background:#fff8f7}
+    .course-switch{display:flex;align-items:center;gap:12px;margin:0 0 18px}
+    .course-switch select{border:1px solid var(--line);background:white;padding:10px 13px;border-radius:10px;max-width:360px;width:100%;color:var(--ink)}
+    .course-hero{background:linear-gradient(120deg,#071b33 0%,#103a60 100%);border-radius:20px;padding:30px 35px;color:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(210px,260px);gap:30px;align-items:center;box-shadow:0 15px 28px #071b3312;overflow:hidden;position:relative}
+    .course-hero:before{content:"";position:absolute;width:280px;height:280px;border:1px solid #ffffff10;border-radius:50%;right:-105px;top:-160px}
+    .course-hero h2{font-size:clamp(24px,3vw,32px);margin:7px 0 9px;line-height:1.2;color:#fff}
+    .course-hero p{color:#d2deea;margin:0;max-width:600px}
+    .kicker{font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:#ffa66c}
+    .hero-side{border:1px solid #ffffff28;border-radius:14px;padding:17px;background:#ffffff0b;position:relative}
+    .hero-side .numbers{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:#d6e2eb}
+    .hero-side strong{font-size:26px;color:white}
+    .progress-bar{height:8px;background:#ffffff3b;border-radius:20px;overflow:hidden;margin:12px 0 15px}
+    .progress-bar span{display:block;height:100%;background:var(--orange);width:0%;border-radius:20px;transition:width .25s}
+    .hero-action{background:var(--orange);color:white;border:0;border-radius:9px;padding:11px 14px;font-weight:800;width:100%}
+    .hero-action:hover{background:#ea5c00}
+    .tabs{margin:25px 0 21px;display:flex;align-items:center;gap:9px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+    .tab{border:0;border-bottom:3px solid transparent;padding:14px 18px;color:var(--muted);background:transparent;font-weight:800;margin-bottom:-1px}
+    .tab:hover{color:var(--navy)}
+    .tab[aria-selected="true"]{color:var(--navy);border-color:var(--orange)}
+    .classroom{display:grid;grid-template-columns:minmax(250px,310px) minmax(0,1fr);align-items:start;gap:22px}
+    .panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 7px 24px #071b3308;overflow:hidden}
+    .panel-heading{padding:20px 21px;border-bottom:1px solid var(--line)}
+    .panel-heading h3{font-size:17px;color:var(--navy);margin:0 0 4px}
+    .panel-heading p{color:var(--muted);margin:0;font-size:13px}
+    .modules{padding:10px}
+    .module{border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:#fff;overflow:hidden}
+    .module:last-child{margin-bottom:0}
+    .module summary{padding:14px;cursor:pointer;display:flex;gap:10px;align-items:center;list-style:none;color:var(--navy)}
+    .module summary::-webkit-details-marker{display:none}
+    .module-number{display:grid;place-items:center;min-width:35px;height:35px;background:#eef3f8;color:var(--navy);border-radius:10px;font-weight:800;font-size:12px}
+    .module-title{flex:1;min-width:0}
+    .module-title b{display:block;font-size:14px}
+    .module-title small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+    .chevron{font-size:16px;color:var(--muted);transition:transform .2s}
+    .module[open] .chevron{transform:rotate(180deg)}
+    .module-lesson-list{padding:0 8px 8px;border-top:1px solid var(--line)}
+    .lesson-link{display:flex;width:100%;gap:9px;align-items:center;text-align:left;background:transparent;border:0;border-radius:9px;padding:11px 9px;color:var(--ink)}
+    .lesson-link:hover{background:#f5f8fc}
+    .lesson-link.active{background:#fff3e9;color:#a63d00}
+    .lesson-number{display:grid;place-items:center;min-width:30px;height:30px;border-radius:9px;background:#f0f3f8;color:#4b5c70;font-weight:700;font-size:12px}
+    .lesson-link.active .lesson-number{background:#ffdabe;color:#a63d00}
+    .lesson-link.done .lesson-number{background:#e3f4eb;color:#18734a}
+    .lesson-text{font-size:13px;line-height:1.35;font-weight:650;flex:1}
+    .lesson-check{font-size:14px;color:var(--success);font-weight:900}
+    .empty-message{padding:15px;color:var(--muted);font-size:13px}
+    .player{padding:28px 30px}
+    .lesson-overline{font-size:11px;color:var(--orange);letter-spacing:.12em;font-weight:800;text-transform:uppercase}
+    .player h3{font-size:clamp(22px,3vw,28px);line-height:1.2;color:var(--navy);margin:9px 0 12px}
+    .player-description{margin:0 0 17px;color:var(--muted)}
+    .player-frame{background:#061a30;border-radius:12px;overflow:hidden;margin:20px 0 18px;box-shadow:0 8px 20px #071b3322;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
+    .player-frame iframe{width:100%;height:100%;border:0;display:block}
+    .player-placeholder{color:white;padding:25px;text-align:center}
+    .content-text{white-space:pre-wrap;line-height:1.75;margin:22px 0;color:#33485d}
+    .extra-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--orange);font-weight:700}
+    .lesson-toolbar{padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .lesson-buttons{display:flex;flex-wrap:wrap;gap:8px}
+    .btn{border:1px solid var(--line);border-radius:10px;padding:11px 15px;font-weight:800;color:var(--navy);background:#fff}
+    .btn-primary{background:var(--orange);border-color:var(--orange);color:white}
+    .btn-primary:hover{background:#e75d00}
+    .btn:not(.btn-primary):hover{background:#f3f6fa}
+    .done-label{display:inline-flex;align-items:center;gap:7px;color:var(--success);font-weight:700;font-size:13px}
+    .library-panel{padding:26px 30px}
+    .library-panel h3{margin:0;color:var(--navy);font-size:24px}
+    .library-panel>p{color:var(--muted);margin:7px 0 23px}
+    .library-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .material-card{border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:8px}
+    .material-icon{width:44px;height:44px;border-radius:12px;background:#fff0e5;display:grid;place-items:center;color:#c65100;font-size:23px}
+    .material-type{color:#b34a06;text-transform:uppercase;font-weight:800;font-size:11px;letter-spacing:.09em}
+    .material-card h4{font-size:17px;color:var(--navy);margin:0}
+    .material-card p{color:var(--muted);font-size:13px;margin:0 0 5px;flex:1}
+    .material-card .btn{align-self:flex-start}
+    .notice-inline{margin-top:12px;font-size:13px;min-height:20px;color:var(--muted)}
+    @media(max-width:900px){.classroom{grid-template-columns:1fr}.modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}.module{margin:0}}
+    @media(max-width:620px){.container{padding:24px 14px 48px}.top-inner{padding:12px 15px;min-height:68px}.brand{font-size:16px}.brand img{width:43px;height:43px}.top-links{gap:6px}.top-links a,.top-links button{padding:8px;font-size:12px}.course-hero{grid-template-columns:1fr;padding:24px;gap:20px;border-radius:16px}.player{padding:20px 16px}.library-panel{padding:20px 16px}.panel-heading{padding:18px}.modules{grid-template-columns:1fr}.tab{padding:12px 13px}.lesson-toolbar{align-items:flex-start}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.progress-bar span{transition:none}}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <a href="/" class="brand" aria-label="Instituto Ana, início">
+        <img src="/assets/img/Ana-3.png" alt="">
+        <span>Instituto Ana<small>Área do Aluno</small></span>
+      </a>
+      <nav class="top-links" aria-label="Ações da conta">
+        <a href="/">Voltar ao site</a>
+        <button type="button" id="logout">Sair</button>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <div class="greeting">
+      <span class="eyebrow">Educação que forma. Cuidado que transforma.</span>
+      <h1 id="welcome">Bem-vinda à sua jornada de aprendizagem</h1>
+      <p>Continue seus estudos, assista às aulas e consulte seus materiais no seu ritmo.</p>
+    </div>
+    <div id="status" class="notice" aria-live="polite">Carregando seus cursos e matrículas…</div>
+    <div id="workspace" class="hidden">
+      <div id="switchRow" class="course-switch hidden">
+        <label for="courseSwitch">Seu curso:</label>
+        <select id="courseSwitch"></select>
+      </div>
+      <section class="course-hero" aria-labelledby="courseTitle">
+        <div>
+          <span class="kicker">Minha formação</span>
+          <h2 id="courseTitle"></h2>
+          <p id="courseDescription"></p>
+        </div>
+        <div class="hero-side">
+          <div class="numbers"><span>Seu progresso</span><strong id="progressPercent">0%</strong></div>
+          <div class="progress-bar" aria-label="Progresso do curso"><span id="progressFill"></span></div>
+          <button type="button" id="continueBtn" class="hero-action">Continuar estudando →</button>
+          <div id="progressText" style="margin-top:9px;text-align:center;color:#d6e2eb;font-size:12px"></div>
+        </div>
+      </section>
+      <div class="tabs" role="tablist" aria-label="Conteúdo do curso">
+        <button id="lessonsTab" class="tab" type="button" role="tab" aria-controls="classroom" aria-selected="true">▶ Aulas e módulos</button>
+        <button id="libraryTab" class="tab" type="button" role="tab" aria-controls="library" aria-selected="false">▤ Biblioteca digital</button>
+      </div>
+      <section id="classroom" class="classroom" role="tabpanel" aria-labelledby="lessonsTab">
+        <aside class="panel" aria-label="Índice de módulos e aulas">
+          <div class="panel-heading"><h3>Conteúdo do curso</h3><p>Escolha a aula que deseja assistir.</p></div>
+          <div id="moduleList" class="modules"></div>
+        </aside>
+        <article class="panel player" aria-live="polite" aria-label="Aula selecionada">
+          <div id="playerContent"></div>
+          <p id="lessonFeedback" class="notice-inline" aria-live="polite"></p>
+        </article>
+      </section>
+      <section id="library" class="panel library-panel hidden" role="tabpanel" aria-labelledby="libraryTab">
+        <h3>Biblioteca digital</h3>
+        <p>Seus e-books, apostilas e materiais complementares ficam organizados aqui.</p>
+        <div id="libraryItems" class="library-items"></div>
+        <p id="libraryFeedback" class="notice-inline" aria-live="polite"></p>
+      </section>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
+  <script>
+    const db=supabase.createClient('https://llbisfkatpgkothsetso.supabase.co','sb_publishable_bIwx5UgckFzhmmizdO-HaA_0wqoiol3');
+    const BUCKET='instituto-ana-cursos';
+    const $=id=>document.getElementById(id);
+    let user=null,courses=[],current=null,modules=[],lessons=[],materials=[],completed=new Set(),selectedLessonId=null,loadVersion=0;
+    const element=(tag,className,text)=>{const node=document.createElement(tag);if(className)node.className=className;if(text!==undefined)node.textContent=text;return node};
+    const safeUrl=value=>{try{const u=new URL(value);return ['https:','http:'].includes(u.protocol)?u.href:''}catch{return ''}};
+    function youtubeId(value){try{const u=new URL(value);const host=u.hostname.toLowerCase().replace(/^www\./,'');let id='';if(host==='youtu.be')id=u.pathname.split('/')[1];else if(['youtube.com','m.youtube.com','youtube-nocookie.com'].includes(host)){if(u.pathname==='/watch')id=u.searchParams.get('v');else if(u.pathname.startsWith('/embed/')||u.pathname.startsWith('/shorts/'))id=u.pathname.split('/')[2]}return /^[A-Za-z0-9_-]{11}$/.test(id||'')?id:null}catch{return null}}
+    function message(text,isError=false){$('status').textContent=text;$('status').className='notice'+(isError?' error':'');$('status').classList.remove('hidden');$('workspace').classList.add('hidden')}
+    function showTab(tab){const library=tab==='library';$('classroom').classList.toggle('hidden',library);$('library').classList.toggle('hidden',!library);$('lessonsTab').setAttribute('aria-selected',String(!library));$('libraryTab').setAttribute('aria-selected',String(library))}
+    async function openPrivateFile(path,feedback){const newTab=window.open('about:blank','_blank');if(newTab)newTab.opener=null;feedback.textContent='Abrindo material…';try{const r=await db.storage.from(BUCKET).createSignedUrl(path,120);if(r.error)throw r.error;if(newTab)newTab.location.replace(r.data.signedUrl);else location.href=r.data.signedUrl;feedback.textContent='Material aberto em outra aba.'}catch(error){if(newTab)newTab.close();feedback.textContent='Não foi possível abrir o material: '+(error.message||'tente novamente.')}}
+    function updateProgress(){const total=lessons.length,done=lessons.filter(l=>completed.has(l.id)).length,percent=total?Math.round(done/total*100):0;$('progressPercent').textContent=percent+'%';$('progressFill').style.width=percent+'%';$('progressText').textContent=done+' de '+total+' aulas concluídas';$('continueBtn').textContent=total&&done===total?'Rever aulas ✓':'Continuar estudando →'}
+    function modulePosition(id){const i=modules.findIndex(m=>m.id===id);return i<0?0:i+1}
+    function lessonPosition(lesson){return lessons.filter(l=>l.module_id===lesson.module_id).findIndex(l=>l.id===lesson.id)+1}
+    function renderNavigation(){const list=$('moduleList');list.replaceChildren();if(!modules.length){list.append(element('p','empty-message','Ainda não há módulos disponíveis.'));return}modules.forEach((m,index)=>{const group=element('details','module');group.open=lessons.some(l=>l.module_id===m.id&&l.id===selectedLessonId)||index===0;const summary=element('summary');summary.append(element('span','module-number',String(index+1).padStart(2,'0')));const title=element('span','module-title');title.append(element('b','Módulo '+String(index+1).padStart(2,'0')+' · '+m.title));const listOfLessons=lessons.filter(l=>l.module_id===m.id);title.append(element('small',listOfLessons.length+' '+(listOfLessons.length===1?'aula':'aulas')));summary.append(title,element('span','chevron','⌄'));group.append(summary);const body=element('div','module-lesson-list');if(!listOfLessons.length)body.append(element('p','empty-message','Aulas em preparação.'));listOfLessons.forEach((l,i)=>{const b=element('button','lesson-link');b.type='button';b.setAttribute('aria-current',l.id===selectedLessonId?'true':'false');b.classList.toggle('active',l.id===selectedLessonId);b.classList.toggle('done',completed.has(l.id));b.append(element('span','lesson-number',completed.has(l.id)?'✓':String(i+1).padStart(2,'0')),element('span','lesson-text','Aula '+String(i+1).padStart(2,'0')+' · '+l.title));if(completed.has(l.id))b.append(element('span','lesson-check','✓'));b.onclick=()=>selectLesson(l.id);body.append(b)});group.append(body);list.append(group)})}
+    function selectLesson(id){const lesson=lessons.find(l=>l.id===id);if(!lesson)return;selectedLessonId=id;renderNavigation();$('lessonFeedback').textContent='';const box=$('playerContent');box.replaceChildren();box.append(element('span','lesson-overline','Módulo '+String(modulePosition(lesson.module_id)).padStart(2,'0')+' · Aula '+String(lessonPosition(lesson)).padStart(2,'0')));box.append(element('h3','',lesson.title));if(lesson.description)box.append(element('p','player-description',lesson.description));const yt=youtubeId(lesson.video_url);if(yt){const frameWrap=element('div','player-frame');const frame=element('iframe');frame.src='https://www.youtube-nocookie.com/embed/'+yt;frame.title='Vídeo da aula: '+lesson.title;frame.loading='lazy';frame.referrerPolicy='strict-origin-when-cross-origin';frame.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';frame.allowFullscreen=true;frameWrap.append(frame);box.append(frameWrap)}else if(lesson.kind==='video'&&lesson.file_path){box.append(element('p','muted','O vídeo desta aula está disponível como arquivo privado.'))}else if(lesson.video_url){const url=safeUrl(lesson.video_url);if(url){const a=element('a','extra-link','Abrir recurso externo ↗');a.href=url;a.target='_blank';a.rel='noopener noreferrer';box.append(a)}}else{box.append(element('div','player-placeholder','Material desta aula disponível abaixo.'))}
+    if(lesson.content)box.append(element('div','content-text',lesson.content));
+    if(lesson.file_path){const btn=element('button','btn','Abrir arquivo da aula ↗');btn.type='button';btn.onclick=()=>openPrivateFile(lesson.file_path,$('lessonFeedback'));box.append(btn)}
+    const bar=element('div','lesson-toolbar'),state=element('span','done-label',completed.has(lesson.id)?'✓ Aula concluída':'○ Aula pendente'),buttons=element('div','lesson-buttons');
+    const doneBtn=element('button','btn btn-primary',completed.has(lesson.id)?'Concluída ✓':'Marcar como concluída');doneBtn.type='button';doneBtn.disabled=completed.has(lesson.id);doneBtn.onclick=async()=>{doneBtn.disabled=true;$('lessonFeedback').textContent='Salvando seu progresso…';const r=await db.from('lesson_progress').upsert({student_id:user.id,course_id:current.id,lesson_key:lesson.id,completed_at:new Date().toISOString()},{onConflict:'student_id,course_id,lesson_key'});if(r.error){doneBtn.disabled=false;$('lessonFeedback').textContent='Não foi possível salvar o progresso. Tente novamente.';return}completed.add(lesson.id);doneBtn.textContent='Concluída ✓';state.textContent='✓ Aula concluída';$('lessonFeedback').textContent='Seu progresso foi salvo.';renderNavigation();updateProgress()};buttons.append(doneBtn);
+    const index=lessons.findIndex(l=>l.id===lesson.id);if(index>=0&&index<lessons.length-1){const next=element('button','btn','Próxima aula →');next.type='button';next.onclick=()=>{selectLesson(lessons[index+1].id);$('classroom').scrollIntoView({behavior:'smooth',block:'start'})};buttons.append(next)}
+    bar.append(state,buttons);box.append(bar);showTab('lessons')}
+    function renderLibrary(){const list=$('libraryItems');list.replaceChildren();if(!materials.length){list.append(element('div','notice','Seus próximos e-books e apostilas aparecerão aqui assim que forem liberados.'));return}materials.forEach(m=>{const card=element('article','material-card');card.append(element('div','material-icon','▤'),element('span','material-type',m.kind==='ebook'?'E-book':m.kind==='apostila'?'Apostila':m.kind==='planilha'?'Planilha':'Material'),element('h4','',m.title));if(m.description)card.append(element('p','',m.description));const btn=element('button','btn','Abrir material ↗');btn.type='button';btn.onclick=()=>openPrivateFile(m.file_path,$('libraryFeedback'));card.append(btn);list.append(card)})}
+    async function displayCourse(id){const sequence=++loadVersion;current=courses.find(c=>c.id===id);if(!current)return;message('Organizando suas aulas…');const [mr,lr,pr,br]=await Promise.all([db.from('course_modules').select('id,title,description,position').eq('course_id',id).order('position'),db.from('course_materials').select('id,title,description,kind,file_path,position').eq('course_id',id).eq('published',true).order('position'),db.from('lesson_progress').select('lesson_key').eq('course_id',id).eq('student_id',user.id),Promise.resolve(null)]);if(sequence!==loadVersion)return;if(mr.error||lr.error||pr.error){message('Não foi possível carregar o conteúdo deste curso. Tente atualizar a página.',true);return}modules=mr.data||[];materials=lr.data||[];completed=new Set((pr.data||[]).map(p=>p.lesson_key));const ids=modules.map(m=>m.id);if(ids.length){const result=await db.from('course_lessons').select('id,module_id,title,description,content,kind,video_url,file_path,position').in('module_id',ids).eq('published',true).order('position');if(sequence!==loadVersion)return;if(result.error){message('Não foi possível carregar suas aulas. Tente novamente.',true);return}const lessonRows=result.data||[];lessons=modules.flatMap(m=>lessonRows.filter(l=>l.module_id===m.id).sort((a,b)=>a.position-b.position))}else lessons=[];
+    $('courseTitle').textContent=current.title;$('courseDescription').textContent=current.description||'Aulas e materiais preparados para sua formação.';$('status').classList.add('hidden');$('workspace').classList.remove('hidden');$('lessonFeedback').textContent='';$('libraryFeedback').textContent='';updateProgress();renderLibrary();
+    if(lessons.length){selectedLessonId=lessons[0].id;selectLesson(selectedLessonId)}else{selectedLessonId=null;renderNavigation();$('playerContent').replaceChildren(element('h3','', 'Suas aulas estão sendo preparadas'),element('p','muted','Assim que novas aulas forem liberadas, elas aparecerão aqui.'));showTab('lessons')}}
+    async function load(){try{const r=await db.auth.getUser();user=r.data.user;if(!user){location.href='/area-do-aluno/login.html';return}const name=user.user_metadata?.full_name;if(name&&typeof name==='string')$('welcome').textContent='Olá, '+name.trim().split(/\s+/)[0]+'!';const enr=await db.from('enrollments').select('course_id,status').eq('student_id',user.id).in('status',['active','completed']);if(enr.error){message('Não foi possível verificar suas matrículas.',true);return}const ids=[...new Set((enr.data||[]).map(e=>e.course_id))];if(!ids.length){message('Você ainda não tem cursos liberados. Fale com a coordenação para confirmar sua matrícula.');return}const cr=await db.from('courses').select('id,title,description,cover_url,status').in('id',ids).eq('status','published').order('title');if(cr.error){message('Não foi possível carregar seus cursos.',true);return}courses=cr.data||[];if(!courses.length){message('Os seus cursos estão em preparação. Assim que forem publicados, aparecerão aqui.');return}if(courses.length>1){$('switchRow').classList.remove('hidden');$('courseSwitch').replaceChildren();courses.forEach(c=>{const option=element('option','',c.title);option.value=c.id;$('courseSwitch').append(option)})}await displayCourse(courses[0].id)}catch(error){message('Ocorreu uma falha ao abrir a área do aluno. Atualize a página para tentar novamente.',true)}}
+    $('lessonsTab').onclick=()=>showTab('lessons');
+    $('libraryTab').onclick=()=>showTab('library');
+    $('courseSwitch').onchange=()=>displayCourse($('courseSwitch').value);
+    $('continueBtn').onclick=()=>{if(!lessons.length){showTab('lessons');return}const next=lessons.find(l=>!completed.has(l.id))||lessons[0];selectLesson(next.id);$('classroom').scrollIntoView({behavior:'smooth',block:'start'})};
+    $('logout').onclick=async()=>{await db.auth.signOut();location.href='/area-do-aluno/login.html'};
+    load();
+  </script>
+</body>
+</html>
