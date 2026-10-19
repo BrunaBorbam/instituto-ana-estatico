@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 590" role="img" aria-labelledby="t d">
+<title id="t">Etapas de um projeto de interiores: do conceito ao 3D</title><desc id="d">Diagrama das seis etapas: briefing, levantamento, planta baixa, estudo de layout, modelagem 3D e detalhamento.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#eef2f5"/><stop offset="1" stop-color="#fff9f0"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#071b33" flood-opacity=".10"/></filter></defs>
+<rect width="1200" height="590" rx="30" fill="url(#bg)"/>
+<text x="60" y="69" font-family="Arial,sans-serif" font-size="18" letter-spacing="3" font-weight="700" fill="#c45d25">PROCESSO DE PROJETO</text>
+<text x="60" y="117" font-family="Georgia,serif" font-size="42" font-weight="bold" fill="#071b33">Da ideia à representação técnica</text>
+<path d="M155 296H1051" stroke="#ff8a45" stroke-width="7" stroke-linecap="round"/>
+<g font-family="Arial,sans-serif" text-anchor="middle">
+<g transform="translate(160 295)"><circle r="57" fill="#071b33" filter="url(#shadow)"/><text y="12" font-size="34" fill="white" font-weight="bold">01</text><text y="-92" font-weight="700" font-size="22" fill="#071b33">Briefing</text><text y="112" font-size="17" fill="#536274">escuta e necessidades</text></g>
+<g transform="translate(338 295)"><circle r="57" fill="#fff" stroke="#071b33" stroke-width="5" filter="url(#shadow)"/><text y="12" font-size="34" fill="#071b33" font-weight="bold">02</text><text y="-92" font-weight="700" font-size="22" fill="#071b33">Medições</text><text y="112" font-size="17" fill="#536274">levantamento</text></g>
+<g transform="translate(516 295)"><circle r="57" fill="#071b33" filter="url(#shadow)"/><text y="12" font-size="34" fill="white" font-weight="bold">03</text><text y="-92" font-weight="700" font-size="22" fill="#071b33">Planta</text><text y="112" font-size="17" fill="#536274">desenho técnico</text></g>
+<g transform="translate(694 295)"><circle r="57" fill="#fff" stroke="#071b33" stroke-width="5" filter="url(#shadow)"/><text y="12" font-size="34" fill="#071b33" font-weight="bold">04</text><text y="-92" font-weight="700" font-size="22" fill="#071b33">Layout</text><text y="112" font-size="17" fill="#536274">fluxos e móveis</text></g>
+<g transform="translate(872 295)"><circle r="57" fill="#f07835" filter="url(#shadow)"/><text y="12" font-size="34" fill="white" font-weight="bold">05</text><text y="-92" font-weight="700" font-size="22" fill="#071b33">Promob</text><text y="112" font-size="17" fill="#536274">modelo 3D</text></g>
+<g transform="translate(1050 295)"><circle r="57" fill="#071b33" filter="url(#shadow)"/><text y="12" font-size="34" fill="white" font-weight="bold">06</text><text y="-92" font-weight="700" font-size="22" fill="#071b33">Pranchas</text><text y="112" font-size="17" fill="#536274">detalhamento</text></g>
+</g>
+<rect x="84" y="480" width="1032" height="63" rx="16" fill="#071b33"/><text x="600" y="520" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#fff">Um bom projeto une investigação, técnica, criatividade e comunicação.</text>
+</svg>
