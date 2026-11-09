@@ -1,0 +1,19 @@
+/* Instituto Ana: formulários de interesse. */
+.ana-lead-container { width: 100%; max-width: 800px; margin: 0 auto; }
+.ana-lead-form { width: 100%; font-family: "Plus Jakarta Sans", Arial, sans-serif; color: #071b33; }
+.ana-lead-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 20px; margin-bottom: 18px; }
+.ana-lead-field { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.ana-lead-field label { display: block; font-size: 0.94rem; font-weight: 700; line-height: 1.5; color: #071b33; }
+.ana-lead-field input, .ana-lead-field select { display: block; width: 100%; box-sizing: border-box; min-height: 50px; background: #fff; color: #26374a; border: 1px solid #cbd3db; border-radius: 10px; padding: 12px 14px; font-size: 1rem; font-family: inherit; box-shadow: none; }
+.ana-lead-field input:focus, .ana-lead-field select:focus { border-color: #e56c2e; outline: 2px solid #f9d8c5; outline-offset: 1px; }
+.ana-lead-consent { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; margin: 12px 0 20px; font-size: 0.91rem; line-height: 1.55; color: #3b4d61; }
+.ana-lead-consent input { width: 19px; height: 19px; margin: 2px 0 0; flex: none; accent-color: #071b33; }
+.ana-lead-submit { display: block; width: 100%; min-height: 54px; padding: 14px 22px; font-family: inherit; font-size: 1rem; font-weight: 800; color: #fff !important; border: 0; border-radius: 11px; background: #e76623 !important; cursor: pointer; transition: filter .2s ease, transform .2s ease; }
+.ana-lead-submit:hover { filter: brightness(.94); transform: translateY(-1px); }
+.ana-lead-submit:focus-visible { outline: 3px solid #071b33; outline-offset: 3px; }
+.ana-lead-submit:disabled { cursor: wait; opacity: .67; transform: none; }
+.ana-lead-feedback { min-height: 1.3em; font-size: .94rem; line-height: 1.55; margin: 15px 0 0; }
+.ana-lead-success { color: #176344; font-weight: 700; }
+.ana-lead-error { color: #a13226; font-weight: 700; }
+.ana-lead-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+@media(max-width: 650px) { .ana-lead-fields { grid-template-columns: 1fr; gap: 14px; } }
